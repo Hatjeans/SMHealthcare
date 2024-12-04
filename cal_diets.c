@@ -3,6 +3,7 @@
 //  Diets for Calorie Diary
 //
 //  Created by Eunju Cha
+//  Developed by Haejin Lee
 //
 
 #include <stdio.h>

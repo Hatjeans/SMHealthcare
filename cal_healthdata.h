@@ -3,9 +3,10 @@
 //  Excercise for Calorie Diary
 //
 //  Created by Eunju Cha
+//  수정할 필요 없음.  
 //
 
-#ifndef cal_healthdata_h
+#define cal_healthdata_h
 #define cal_healthdata_h
 
 #include "cal_exercise.h"

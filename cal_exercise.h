@@ -3,6 +3,7 @@
 //  Excercise for Calorie Diary
 //
 //  Created by Eunju Cha
+//  Developed by Haejin Lee
 //
 
 #ifndef cal_exercise_h
