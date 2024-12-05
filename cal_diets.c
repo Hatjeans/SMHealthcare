@@ -60,13 +60,12 @@ void loadDiets(const char* DIETFILEPATH) {
         	break;
 		}
 	
-		strcpy(diet_list[cnt].food_name, word); //strcpy함수를 이용하여 일시적 배열에 담은 단어를 diet_list.food_name 구조제 database에 복사  
-		diet_list[cnt].calories_intake = calories; // 일시적 변수에 담은 칼로리 양을 diet_list.calories_intake 구조제 database에 복사 
+		strcpy(diet_list[cnt].food_name, word); //[코드작성] 1 -strcpy함수를 이용하여 일시적 배열에 담은 단어를 diet_list.food_name 구조제 database에 복사  
+		diet_list[cnt].calories_intake = calories; //[코드작성] 1 -일시적 변수에 담은 칼로리 양을 diet_list.calories_intake 구조제 database에 복사 
+				
 		
-		// ** diet_list[cnt].calories_intake인지 diet_list.calories_intake[cnt]인지 모르겟으나 전자가 맞는듯 
+		cnt++; //[코드작성] 1 - food_name과 calories_intake가 저장되었을 때마다 카운트 수 증가 
 		
-		
-		cnt++;
 // Project 응용 - 구조체화 4. 파일로 부터 읽은 내용을 구조체 멤버 값에 대입
 //								- 파일로 부터 데이터 읽는 함수 (fscanf, fgetc, fgets) 활용
 //								- 구조체 멤버 접근 방법 활용   
@@ -110,6 +109,6 @@ void print_diet_list(void)
 	int i;
 	
 	for(i=0;i<diet_list_size;i++)
-	printf("%s %d \n",diet_list[i].food_name,diet_list[i].calories_intake);
+	printf("%s %d kcal \n",diet_list[i].food_name,diet_list[i].calories_intake);
 }
 

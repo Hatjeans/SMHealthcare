@@ -18,6 +18,9 @@
 #define MAX_EXERCISE_NAME_LEN 50	// Maximum length of the name of exercise
 
 
+
+
+
 // To declare the structure of the exercises
 static Exercise exercise_list[MAX_EXERCISES]; //[코드작성] 1- 
 int exercise_list_size = 0;
@@ -47,16 +50,18 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
+    // 운동의 후보군은 'exercise.txt' 파일로부터 읽어와서 저장하며, 아래와 같은 형식으로 저장하고 있음.
+	// (사용자가 선택한 운동)*(운동시간 [min]) = (총 소모 칼로리 [kcal]) 
+			
     while (fscanf(file, "%s %d", word, &calories) != EOF) {
     	
         if (exercise_list_size >= MAX_EXERCISES){ 
         	break;
 		}
 	
-		 strcpy(exercise_list[cnt].exercise_name, word); //strcpy함수를 이용하여 일시적 배열에 담은 단어를 diet_list.food_name 구조제 database에 복사  
+		strcpy(exercise_list[cnt].exercise_name, word); //strcpy함수를 이용하여 일시적 배열에 담은 단어를 diet_list.food_name 구조제 database에 복사  
 		exercise_list[cnt].calories_burned_per_minute = calories; // 일시적 변수에 담은 칼로리 양을 diet_list.calories_intake 구조제 database에 복사 
 		
-		// ** diet_list[cnt].calories_intake인지 diet_list.calories_intake[cnt]인지 모르겟으나 전자가 맞는듯 
 		
 		
 		cnt++;
@@ -108,6 +113,6 @@ void print_exercise_list(void)
 	int i;
 	
 	for(i=0;i<exercise_list_size;i++)
-	printf("%s %d \n",exercise_list[i].exercise_name,exercise_list[i].calories_burned_per_minute);
+	printf("%s %d kcal per min \n",exercise_list[i].exercise_name,exercise_list[i].calories_burned_per_minute);
 }
 

@@ -18,6 +18,16 @@
 #define DIETFILEPATH "diets.txt"
 #define HEALTHFILEPATH "health_data.txt"
 
+
+
+//[코드작성] 1.프로그램 시작과 함께 exercise.txt, diet.txt로부터 운동관련 정보를 읽어와 exercise_list[], diet_list[] 라는 database 배열에 저장
+//[코드작성] 2. choice가 1일때 exercise_list를 출력 
+
+
+
+
+
+
 static int choice;
 
 int main() {
@@ -33,8 +43,6 @@ int main() {
 	
 	loadExercises(EXERCISEFILEPATH); //[코드작성] 1.프로그램 시작과 함께 exercise.txt로부터 운동관련 정보를 읽어와 exercise_list[]라는 database 배열에 저장
 	loadDiets(DIETFILEPATH); //[코드작성] 1.프로그램 시작과 함께 diet.txt로부터 운동관련 정보를 읽어와 diet_list[]라는  database 배열에 저장
-	
-	
 	
     
     // ToCode: to run the "Healthcare Management Systems" until 1. (all calories are used up) or 2. (the user wants to exit the system)
@@ -66,6 +74,7 @@ int main() {
 			
 			
             case 1: 
+            
 				print_exercise_list();
 				 
             
@@ -80,6 +89,7 @@ int main() {
 			// +일일 권장 섭취 칼로리는 2000kcal. 
 			 
             case 2:
+            	
             	print_diet_list();
 
 				 
