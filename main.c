@@ -35,6 +35,7 @@ int main() {
     HealthData health_data = {0};
     
     
+    
     // Tocode: to read the list of the exercises and diets
     // 프로그램 시작과 함께 'diets.txt'파일과 'exercise.txt'로부터 식단과 운동관련 정보를 읽어와서 database에 저장함.
 	// 시작과 함께 사용자가 운동/식단 선택시, 해당정보들이 출력되어야함.
@@ -73,8 +74,8 @@ int main() {
 			
             case 1: 
             
-				inputExercise(health_data);
-            	saveData(HEALTHFILEPATH, &health_data);
+				inputExercise(&health_data);
+				saveData(HEALTHFILEPATH, &health_data);
             	
                 break;
             
@@ -119,6 +120,8 @@ int main() {
             	
     			printf("Exit the system.\n");
     			printf("=======================================================================\n");
+    			
+    			saveData(HEALTHFILEPATH, &health_data);
                 break;
                 
             default:

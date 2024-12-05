@@ -27,10 +27,6 @@
 
 
 
-///
-HealthData my_health_data_history;
-int data_history_size = 0;
-
 
 
 void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
@@ -43,9 +39,12 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
-    fprintf(file, "%d\n",health_data->exercises[0].calories_burned_per_minute);// 추후 포문과함께 수정 
-    fprintf(file, "%d\n",health_data->exercises[1].calories_burned_per_minute);// 추후 포문과함께 수정 
-    fprintf(file, "%d\n",health_data->exercises[2].calories_burned_per_minute);// 추후 포문과함께 수정 
+    
+    for(i=0;i<MAX_EXERCISES;i++){
+    	fprintf(file, "%d\n",health_data->exercises[i].calories_burned_per_minute);// 
+
+	}
+
 
     
     
@@ -58,7 +57,11 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     // ToCode: to save the total remaining calrories
     fprintf(file, "\n[Total] \n");
     
+    
+    
     fclose(file);
+    
+    printf("file writing done\n");
 }
 
 /*

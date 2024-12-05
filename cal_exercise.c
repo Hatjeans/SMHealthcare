@@ -93,11 +93,6 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 void inputExercise(HealthData* health_data) {
     int choice, duration, i;
     
-    int cnt; // 카운트를 위해 추가  
-    HealthData *Ptr= &my_health_data_history;// 내맘대로 추가
-	 
-
-    
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
     
@@ -121,23 +116,28 @@ void inputExercise(HealthData* health_data) {
     printf("Enter the duration of the exercise (in min.): ");
     scanf("%d", &duration);
     
-    printf("You burned %d kcal total", (exercise_list[choice-1].calories_burned_per_minute)*duration);
+    printf("You burned %d kcal total\n", (exercise_list[choice-1].calories_burned_per_minute)*duration);
     
     
     
     // ToCode: to enter the selected exercise and total calcories burned in the health data
 	//my_health_data_history.exercises[cnt].calories_burned_per_minute = (exercise_list[choice-1].calories_burned_per_minute)*duration;
 	
-	health_data->exercises[cnt].calories_burned_per_minute = (exercise_list[choice-1].calories_burned_per_minute)*duration;
+	health_data->exercises[health_data->exercise_count].calories_burned_per_minute = (exercise_list[choice-1].calories_burned_per_minute)*duration; // exercise 칼로리 추가
+ 
+
+	strcpy(health_data->exercises[health_data->exercise_count].exercise_name,exercise_list[choice-1].exercise_name); // exercise 이름 추가  
 	
-	strcpy(health_data->exercises[cnt].exercise_name,exercise_list[choice-1].exercise_name);
-	
+	printf("%d %s \n",	health_data->exercises[health_data->exercise_count].calories_burned_per_minute,health_data->exercises[health_data->exercise_count].exercise_name );
 	/*
 	Ptr ->exercises[cnt].calories_burned_per_minute;
 	*Ptr = (exercise_list[choice-1].calories_burned_per_minute)*duration;
 	*/
 	
-	cnt++;
+	health_data->exercise_count++;
+	printf("%d",health_data->exercise_count);
+
+
 	
 
 
