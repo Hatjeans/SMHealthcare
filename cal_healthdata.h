@@ -53,6 +53,13 @@ Exercise exercises[MAX_EXERCISES];  // exercise history
 } HealthData; 
 
 
+// 구조체 복습
+// 구조체 포인터를 이용하여 구조체의 멤버 (구성요소)에 접근할 수 있다. 
+// ex)  struct student *strPtr; 구조체 포인터 선언
+//		struct student s = {10, "각자 이름", 4.3}
+//		strPtr = &s;								 // 포인터를 구조체 s에 배정  
+//		printf("ID : %d %d \n", s.ID, strPtr -> ID); //.연산자와 -> 연산자를 사용하여 각 멤버에 접근할 수 있다.  
+
 
 // Typedef를 이용하여 사용자가 새로운 자료형을 정의 typedef (원래 자료형) (새로운 자료형 이름); 
 // 현재 자료형 struct, 새로운 자료형 이름 Exercise -> 앞으로 Exercise만 써도 해당 구조체를 사용할 수 있음  
