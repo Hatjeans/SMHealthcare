@@ -111,10 +111,33 @@ void inputExercise(HealthData* health_data) {
     printf("Enter the duration of the exercise (in min.): ");
     scanf("%d", &duration);
     
+    printf("You burned %s calories", (exercise_list[choice-1].calories_burned_per_minute)*duration);
+    
+    
     // ToCode: to enter the selected exercise and total calcories burned in the health data
+
+	exercise_count++;
 	
 
 
+/*
+Exercise exercises[MAX_EXERCISES];  // exercise history 
+// Typedef를 이용하여 exercises 구조체를 정의해서 주셨다. 
+//exercise_count변수를 이용해서  운동을 했을때마다 순서가 매겨지는 것을 이용하면 좋을 것 같다.  
+ 
+    Diet diet[MAX_DIETS];                // diet history
+// Typedef를 이용하여 Diet 구조체를 정의해서 주셨다. 
+//diet_count변수를 이용해서  운동을 했을때마다 순서가 매겨지는 것을 이용하면 좋을 것 같다.  
+    
+    int exercise_count;                  // number of exercises
+    int diet_count;                      // number of diets
+    int total_calories_burned;   
+    
+    
+    
+    exercise_name[MAX_EXERCISE_NAME_LEN];	// the name of the exercise
+    int calories_burned_per_minute
+*/
 }
 
 

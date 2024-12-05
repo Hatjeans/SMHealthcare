@@ -25,6 +25,11 @@
     			3. save the total remaining calrories
 */
 
+// health_data : 운동과 식단 정보가 저장되는 database  
+//
+
+
+
 void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	int i;
     FILE* file = fopen(HEALTHFILEPATH, "w"); // HEALTHFILEPATH == "health_data.txt"
