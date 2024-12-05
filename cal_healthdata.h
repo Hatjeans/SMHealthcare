@@ -26,21 +26,38 @@ typedef struct {
     int calories_burned_per_minute;   			// calory burned per minute
 } Exercise;
 
+
+
 // diet definition for linked list
 typedef struct {
     char food_name[MAX_FOOD_NAME_LEN]; 	// the name of food
     int calories_intake;   				// calorie intake
 } Diet;
+ 
+
 
 // health data  definition for linked list
 typedef struct {
-Exercise exercises[MAX_EXERCISES];  // exercise history
+Exercise exercises[MAX_EXERCISES];  // exercise history 
+// Typedef를 이용하여 exercises 구조체를 정의해서 주셨다. 
+//exercise_count변수를 이용해서  운동을 했을때마다 순서가 매겨지는 것을 이용하면 좋을 것 같다.  
+ 
     Diet diet[MAX_DIETS];                // diet history
+// Typedef를 이용하여 Diet 구조체를 정의해서 주셨다. 
+//diet_count변수를 이용해서  운동을 했을때마다 순서가 매겨지는 것을 이용하면 좋을 것 같다.  
+    
     int exercise_count;                  // number of exercises
     int diet_count;                      // number of diets
     int total_calories_burned;           // total calories burned
     int total_calories_intake;           // total calories intake
-} HealthData;
+} HealthData; 
+
+
+
+// Typedef를 이용하여 사용자가 새로운 자료형을 정의 typedef (원래 자료형) (새로운 자료형 이름); 
+// 현재 자료형 struct, 새로운 자료형 이름 Exercise -> 앞으로 Exercise만 써도 해당 구조체를 사용할 수 있음  
+// 새로운 자료형 Exercise, Diet, HealthData 쓰는 방법 : Diet diet[]배열과 diet_count를 함께 적용하면 된다. ex)for(i=0;i<diet_count;i++) printf("%s", diet[i])등  
+
 
 
 
