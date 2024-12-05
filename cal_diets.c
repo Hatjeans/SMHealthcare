@@ -37,7 +37,7 @@ void loadDiets(const char* DIETFILEPATH) {
      // ToCode: to read a list of the diets from the given file
     while () {
     	
-        if (diet_list_size >= MAX_DIETS){
+        if (diet_list_size >= MAX_DIETS){//파일을 불러올 수 있게 코드를 짜야함 
         	break;
 		}
     }
