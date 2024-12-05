@@ -35,6 +35,8 @@ int exercise_list_size = 0;
 void loadExercises(const char* EXERCISEFILEPATH) {
 	
     FILE *file = fopen(EXERCISEFILEPATH, "r");
+    char word[100]; // 파일에서 읽어올 한 글자씩을 담는  
+    
     
     
 // 파일 복습  
@@ -69,7 +71,8 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    while ( ) {
+    while (fscanf(file, "%s", )) {
+    	
     	
         if (exercise_list_size >= MAX_EXERCISES){ 
 		
