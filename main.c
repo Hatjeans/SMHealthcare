@@ -28,8 +28,12 @@ int main() {
     // 프로그램 시작과 함께 'diets.txt'파일과 'exercise.txt'로부터 식단과 운동관련 정보를 읽어와서 database에 저장함.
 	// 시작과 함께 사용자가 운동/식단 선택시, 해당정보들이 출력되어야함.
 	
+	loadExercises(EXERCISEFILEPATH); //[코드작성] 1.프로그램 시작과 함께 exercise.txt로부터 운동관련 정보를 읽어와 exercise_list[]라는 database 배열에 저장
+	loadDiets(DIETFILEPATH); //[코드작성] 1.프로그램 시작과 함께 diet.txt로부터 운동관련 정보를 읽어와 diet_list[]라는  database 배열에 저장
+	
+	
+	
     
-
     // ToCode: to run the "Healthcare Management Systems" until 1. (all calories are used up) or 2. (the user wants to exit the system)
     // 시스템 종료조건 도달시, 시스템 종료 및 'health_data.txt'파일저장. 
 
@@ -56,7 +60,10 @@ int main() {
         	// 운동 옵션 선택시, 저장된 모든 운동 후보 출력(모든 정보 항목에 대해 출력) & 해당 운동을 진행할 시간 입력 가능  
         	// 운동의 후보군은 'exercise.txt' 파일로부터 읽어와서 저장하며, 아래와 같은 형식으로 저장하고 있음.
 			// (사용자가 선택한 운동)*(운동시간 [min]) = (총 소모 칼로리 [kcal]) 
+			
+			
             case 1: 
+            
             	
                 break;
             
