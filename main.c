@@ -68,13 +68,18 @@ int main() {
                 break;
             
             
-            // 식사 옵션 선택시, 저장된 모든 운동 후보 출력(모든 정보 항목에 대해 출력)
+            // 식사 옵션 선택시, 저장된 모든 식단  후보 출력(모든 정보 항목에 대해 출력)
 			// 식단의 후보군은 'diets.txt' 파일로부터 읽어와서 저장하며, 아래와 같은 형식으로 저장하고있음. 
 			// (식단) (해당 식단 섭취 시 얻게되는 kcal)
 			// + 건강한 칼로리 섭취를 위해, 하루에 3끼를 먹음
 			// +일일 권장 섭취 칼로리는 2000kcal. 
 			 
             case 2:
+            	
+            	for(i=0;i<diet_list_size;i++)
+            	printf("%s %d",diet_list[i].food_name,diet_list[i].calories_intake);
+				 
+            
             	
                 break;
                 
