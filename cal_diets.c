@@ -27,8 +27,18 @@ static int diet_list_size = 0;
     description : read the information in "diets.txt"
 */
 
+
+
+// Project 응용 - 구조체화 3. 기존함수의 수정  
+// 								 loadDiets(const char* DIETFILEPATH) 이용하기 
+
+
 void loadDiets(const char* DIETFILEPATH) {
     FILE *file = fopen(DIETFILEPATH, "r");
+    
+	//파일을 불러올 수 있게 코드를 짜야함 
+    // * 참고할 실습 : week 11 [실습3], [실습6] 
+    
     if (file == NULL) {
         printf("There is no file for diets! \n");
         return;
@@ -37,7 +47,15 @@ void loadDiets(const char* DIETFILEPATH) {
      // ToCode: to read a list of the diets from the given file
     while () {
     	
-        if (diet_list_size >= MAX_DIETS){//파일을 불러올 수 있게 코드를 짜야함 
+        if (diet_list_size >= MAX_DIETS){ 
+
+		
+// Project 응용 - 구조체화 4. 파일로 부터 읽은 내용을 구조체 멤버 값에 대입
+//								- 파일로 부터 데이터 읽는 함수 (fscanf, fgetc, fgets) 활용
+//								- 구조체 멤버 접근 방법 활용   
+
+
+
         	break;
 		}
     }
