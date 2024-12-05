@@ -75,7 +75,6 @@ int main() {
 			
             case 1: 
             
-				print_exercise_list();
 				inputExercise(health_data);
             
             	

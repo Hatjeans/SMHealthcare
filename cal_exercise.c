@@ -92,48 +92,32 @@ void inputExercise(HealthData* health_data) {
     printf("The list of exercises: \n");
     
 	for(i=0;i<exercise_list_size;i++)
-	printf("%d : %s %d kcal per min \n",i+1,exercise_list[i].exercise_name,exercise_list[i].calories_burned_per_minute);
+		printf("%d : %s %d kcal per min \n",i+1,exercise_list[i].exercise_name,exercise_list[i].calories_burned_per_minute);
 
 
     // ToCode: to enter the exercise to be chosen with exit option
     //** exit option과 함께 제공해야함 
-
-do { 	
-
 	printf("\nEnter the option number of exercise you've done\n");
 	printf("(If you want to go to the home menu, press -1)\n");
 	printf(" : ");
 	scanf("%d", &choice);
 	
 	if (choice == -1) 
-	{
 		return;
-		break;
-	}
-	else if (choice==0||choice<-1)
-	{
-		printf("you choose a wrong number.\n please enter the valid number. \n");
-		continue;
-		
-	}
-    
-    else{
-    	
-    	
+
+
     // To enter the duration of the exercise
     printf("You choose < %d : %s > \n", choice, exercise_list[choice-1].exercise_name);
     printf("Enter the duration of the exercise (in min.): ");
     scanf("%d", &duration);
-	break;	
-	}
-
+    
     // ToCode: to enter the selected exercise and total calcories burned in the health data
 	
-} while(1);
 
-    
 
 }
+
+
 
 
 //[코드작성]1 - exercise_list가 static선언 되어있어서 main함수에서 프린트하기가 까다로움 따라서 print하는 함수를 추가
