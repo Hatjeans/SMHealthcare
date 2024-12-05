@@ -25,7 +25,7 @@
     			3. save the total remaining calrories
 */
 
-
+//[코드작성] 3. saveData함수에 변경된 내용을 저장.
 
 
 
@@ -40,8 +40,9 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
     
-    for(i=0;i<MAX_EXERCISES;i++){
-    	fprintf(file, "%d\n",health_data->exercises[i].calories_burned_per_minute);// 
+    //[코드작성] 3- for문과 fprintf를 이용하여 이때까지 입력받은 exercise이름과 duration동안 소모한 총 칼로리를 health_data.txt파일에 저장
+    for(i=0;i<health_data->exercise_count;i++){
+    	fprintf(file, "%d\n",health_data->exercises[i].calories_burned_per_minute); 
 
 	}
 
