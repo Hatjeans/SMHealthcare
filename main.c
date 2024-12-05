@@ -74,7 +74,7 @@ int main() {
             case 1: 
             
 				inputExercise(health_data);
-            
+            	saveData(HEALTHFILEPATH, &health_data);
             	
                 break;
             

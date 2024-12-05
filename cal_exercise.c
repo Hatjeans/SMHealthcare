@@ -94,7 +94,8 @@ void inputExercise(HealthData* health_data) {
     int choice, duration, i;
     
     int cnt; // 카운트를 위해 추가  
-    HealthData *Ptr= &my_health_data_history;
+    HealthData *Ptr= &my_health_data_history;// 내맘대로 추가
+	 
 
     
     // ToCode: to provide the options for the exercises to be selected

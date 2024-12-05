@@ -43,6 +43,11 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
+    fprintf(file, "%d\n",health_data->exercises[0].calories_burned_per_minute);// 추후 포문과함께 수정 
+    fprintf(file, "%d\n",health_data->exercises[1].calories_burned_per_minute);// 추후 포문과함께 수정 
+    fprintf(file, "%d\n",health_data->exercises[2].calories_burned_per_minute);// 추후 포문과함께 수정 
+
+    
     
     
     // ToCode: to save the chosen diet and total calories intake 
@@ -53,7 +58,7 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     // ToCode: to save the total remaining calrories
     fprintf(file, "\n[Total] \n");
     
-    
+    fclose(file);
 }
 
 /*
