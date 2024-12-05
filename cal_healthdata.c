@@ -28,9 +28,9 @@
 
 
 ///
-HealthData my_health_data_history[MAX_HEALTH];
+HealthData my_health_data_history;
 int data_history_size = 0;
-HealthData *dataPtr = my_health_data_history;
+
 
 
 void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {

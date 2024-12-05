@@ -94,6 +94,8 @@ void inputExercise(HealthData* health_data) {
     int choice, duration, i;
     
     int cnt; // 카운트를 위해 추가  
+    int *Ptr;
+
     
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
@@ -123,9 +125,11 @@ void inputExercise(HealthData* health_data) {
     
     
     // ToCode: to enter the selected exercise and total calcories burned in the health data
-	my_health_data_history[cnt].total_calories_burned = (exercise_list[choice-1].calories_burned_per_minute)*duration;
+	//my_health_data_history.exercises[cnt].calories_burned_per_minute = (exercise_list[choice-1].calories_burned_per_minute)*duration;
 
-
+	Ptr = &my_health_data_history.exercises[cnt].calories_burned_per_minute;
+	*Ptr = (exercise_list[choice-1].calories_burned_per_minute)*duration;
+	
 	cnt++;
 	
 

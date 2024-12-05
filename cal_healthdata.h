@@ -103,7 +103,7 @@ Exercise exercises[MAX_EXERCISES];  // exercise history
 
 
 
-extern HealthData my_health_data_history[MAX_HEALTH];
+extern HealthData my_health_data_history;
 
 
 void saveData(const char* HEALTHFILEPATH,const HealthData* health_data);
