@@ -22,7 +22,7 @@
 
 
 // To declare the structure of the exercises
-static Exercise exercise_list[MAX_EXERCISES]; //[코드작성] 1- 
+static Exercise exercise_list[MAX_EXERCISES]; //[코드작성] 1- 운동  관련 정보를 담을 exercise_list[]라는 database 
 int exercise_list_size = 0;
 
 /*
@@ -64,7 +64,7 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 		
 		
 		
-		cnt++;
+		cnt++; //[코드작성] 1 - exercise_name과 calories_burned_per_minute가 저장되었을 때마다 카운트 수 증가 
 // Project 응용 - 구조체화 4. 파일로 부터 읽은 내용을 구조체 멤버 값에 대입
 //								- 파일로 부터 데이터 읽는 함수 (fscanf, fgetc, fgets) 활용
 //								- 구조체 멤버 접근 방법 활용   
@@ -91,17 +91,46 @@ void inputExercise(HealthData* health_data) {
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
     
+	for(i=0;i<exercise_list_size;i++)
+	printf("%d : %s %d kcal per min \n",i+1,exercise_list[i].exercise_name,exercise_list[i].calories_burned_per_minute);
 
 
     // ToCode: to enter the exercise to be chosen with exit option
+    //** exit option과 함께 제공해야함 
 
- 
+do { 	
+
+	printf("\nEnter the option number of exercise you've done\n");
+	printf("(If you want to go to the home menu, press -1)\n");
+	printf(" : ");
+	scanf("%d", &choice);
+	
+	if (choice == -1) 
+	{
+		return;
+		break;
+	}
+	else if (choice==0||choice<-1)
+	{
+		printf("you choose a wrong number.\n please enter the valid number. \n");
+		continue;
+		
+	}
     
+    else{
+    	
+    	
     // To enter the duration of the exercise
+    printf("You choose < %d : %s > \n", choice, exercise_list[choice-1].exercise_name);
     printf("Enter the duration of the exercise (in min.): ");
     scanf("%d", &duration);
+	break;	
+	}
 
     // ToCode: to enter the selected exercise and total calcories burned in the health data
+	
+} while(1);
+
     
 
 }

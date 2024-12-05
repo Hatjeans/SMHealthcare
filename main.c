@@ -49,7 +49,7 @@ int main() {
     // 시스템 종료조건 도달시, 시스템 종료 및 'health_data.txt'파일저장. 
 
     do {
-    	if ( 0 ){ // if 조건안에 1. 모든 칼로리가 소모되었을 때를 표현 (남은 칼로리 =0) 
+    	if ( 0 ){ // if 조건안에 1. 모든 칼로리가 소모되었을 때를 표현 (남은 칼로리 =0) //**나중에 수정요망 
     	        // 시스템 종료조건 도달시, 시스템 종료 및 'health_data.txt'파일저장. 
             printf("You have consumed all your calories for today! \n");
 		} 
@@ -76,7 +76,7 @@ int main() {
             case 1: 
             
 				print_exercise_list();
-				 
+				inputExercise(health_data);
             
             	
                 break;
@@ -91,6 +91,7 @@ int main() {
             case 2:
             	
             	print_diet_list();
+
 
 				 
             
