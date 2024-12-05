@@ -25,9 +25,12 @@
     			3. save the total remaining calrories
 */
 
-// health_data : 운동과 식단 정보가 저장되는 database  
-//
 
+
+///
+HealthData my_health_data_history[MAX_HEALTH];
+int data_history_size = 0;
+HealthData *dataPtr = my_health_data_history;
 
 
 void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {

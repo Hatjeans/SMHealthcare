@@ -25,9 +25,6 @@
 
 
 
-
-
-
 static int choice;
 
 int main() {
@@ -36,6 +33,7 @@ int main() {
 	
 	// To initialize the health data object
     HealthData health_data = {0};
+    
     
     // Tocode: to read the list of the exercises and diets
     // 프로그램 시작과 함께 'diets.txt'파일과 'exercise.txt'로부터 식단과 운동관련 정보를 읽어와서 database에 저장함.
@@ -89,8 +87,6 @@ int main() {
 			 
             case 2:
             	
-            	print_diet_list();
-
 
 				 
             
