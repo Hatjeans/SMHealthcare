@@ -41,7 +41,7 @@ void loadDiets(const char* DIETFILEPATH) {
 	char word[100];//[코드작성] 1 - 파일에서 읽어올 글자를 한글자씩 담는 일시적인 배열  
 	int calories; //[코드작성] 1 - 파일에서 읽어올 글자를 한글자씩 담는 일시적인 변수  
 	int cnt=0; // [코드작성] 1 - diet_list[]라는 database에 몇번째로 들어가는지 필요한 인덱스 개념 
-	
+	int i;
 	
 	
     FILE *file = fopen(DIETFILEPATH, "r"); //DIETFILEPATH == "diet.txt"
@@ -59,19 +59,20 @@ void loadDiets(const char* DIETFILEPATH) {
         if (diet_list_size >= MAX_DIETS){ 
         	break;
 		}
-
-		printf("%s %d", word, calories);
-		
-		diet_list[cnt].food_name = strcpy(diet_list.food_name, word); //strcpy함수를 이용하여 일시적 배열에 담은 단어를 diet_list.food_name 구조제 database에 복사  
+	
+		strcpy(diet_list[cnt].food_name, word); //strcpy함수를 이용하여 일시적 배열에 담은 단어를 diet_list.food_name 구조제 database에 복사  
 		diet_list[cnt].calories_intake = calories; // 일시적 변수에 담은 칼로리 양을 diet_list.calories_intake 구조제 database에 복사 
 		
 		// ** diet_list[cnt].calories_intake인지 diet_list.calories_intake[cnt]인지 모르겟으나 전자가 맞는듯 
+		
 		
 		cnt++;
 // Project 응용 - 구조체화 4. 파일로 부터 읽은 내용을 구조체 멤버 값에 대입
 //								- 파일로 부터 데이터 읽는 함수 (fscanf, fgetc, fgets) 활용
 //								- 구조체 멤버 접근 방법 활용   
     }
+    
+    diet_list_size = cnt; //[코드작성] 1 - 저장된 데이터 개수를 카운터 변수를 통해 업데이트 
     fclose(file);
 }
 
@@ -100,5 +101,15 @@ void inputDiet(HealthData* health_data) {
     // ToCode: to enter the total calories intake in the health data
 
 
+}
+
+
+//[코드작성]1 - diet_list가 static선언 되어있어서 main함수에서 프린트하기가 까다로움 따라서 print하는 함수를 추가
+void print_diet_list(void)   
+{
+	int i;
+	
+	for(i=0;i<diet_list_size;i++)
+	printf("%s %d \n",diet_list[i].food_name,diet_list[i].calories_intake);
 }
 

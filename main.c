@@ -21,6 +21,9 @@
 static int choice;
 
 int main() {
+	
+	int i;
+	
 	// To initialize the health data object
     HealthData health_data = {0};
     
@@ -38,7 +41,7 @@ int main() {
     // 시스템 종료조건 도달시, 시스템 종료 및 'health_data.txt'파일저장. 
 
     do {
-    	if ( ){ // if 조건안에 1. 모든 칼로리가 소모되었을 때를 표현 (남은 칼로리 =0) 
+    	if ( 0 ){ // if 조건안에 1. 모든 칼로리가 소모되었을 때를 표현 (남은 칼로리 =0) 
     	        // 시스템 종료조건 도달시, 시스템 종료 및 'health_data.txt'파일저장. 
             printf("You have consumed all your calories for today! \n");
 		} 
@@ -63,6 +66,8 @@ int main() {
 			
 			
             case 1: 
+				print_exercise_list();
+				 
             
             	
                 break;
@@ -75,9 +80,8 @@ int main() {
 			// +일일 권장 섭취 칼로리는 2000kcal. 
 			 
             case 2:
-            	
-            	for(i=0;i<diet_list_size;i++)
-            	printf("%s %d",diet_list[i].food_name,diet_list[i].calories_intake);
+            	print_diet_list();
+
 				 
             
             	
@@ -115,7 +119,7 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
-    } while ( );
+    } while ( 1 );
 
     return 0;
 }
