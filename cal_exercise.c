@@ -64,7 +64,7 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     // 운동의 후보군은 'exercise.txt' 파일로부터 읽어와서 저장하며, 아래와 같은 형식으로 저장하고 있음.
 	// (사용자가 선택한 운동)*(운동시간 [min]) = (총 소모 칼로리 [kcal]) 
 			
-    while (fscanf(file, "%s", word, &calories) != EOF) {
+    while (fscanf(file, "%s %d", word, &calories) != EOF) {
     	
         if (exercise_list_size >= MAX_EXERCISES){ 
         	break;
@@ -177,20 +177,19 @@ void inputExercise(HealthData* health_data) {
 	
 	
 	
-	/*
+
     // ToCode: to enter the selected exercise and *total calcories burned in the health data [교수님 주석 수정]
     // + 추가설명 : line @@에 표시한 total calories burned in the health data를 여기에 구현 
     //[코드작성] 2 - health_data 포인터와 -> 연산자를 이용하여 database구조체의 total_calories_burned에 접근후 값을 업데이트 	
-	calculation_so_far += calculation; // + 추가 설명 : 대입 연산자를 이용해 calculation을 더한 값을 계속 업데이트   
-	health_data->total_calories_burned = calculation_so_far;// health_data database의 total calories burned in the health data에 최종 값 calculation_so_far을 업데이트 	
-	*/
+	health_data->total_calories_burned += calculation;// health_data database의 total calories burned in the health data에 최종 값 calculation_so_far을 업데이트 	
 	
 	
 	
 	
 	// @@database에 잘 저장되었는지 확인하기 위한 장치  
 	printf("%d %s \n",	health_data->exercises[health_data->exercise_count].calories_burned_per_minute,health_data->exercises[health_data->exercise_count].exercise_name );
-	
+	printf("%d \n",	health_data->total_calories_burned);
+
 	//[코드작성] 2 - 입력할 때마다 순서를 늘려주어야 하므로 후위 연산자를 사용  
 	health_data->exercise_count++;
 	

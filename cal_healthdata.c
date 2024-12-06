@@ -42,13 +42,14 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	int calculation_sofar_D; // + 추가설명: [코드작성] 5에서 총 섭취한 칼로리를 계산하기 위한 변스  
 	int remaining_calories; //+ 추가설명: [코드작성] 6에서 remaining_calories백업을 위한 변수
 	
+	/*
 	//[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산 
 	HealthData** temp_Ptr = &health_data; 
 	//+추가설명 : void saveData(const char* HEALTHFILEPATH, const HealthData* health_data)에서 
 	//			  health_data가 constant 변수로 정의되어있어서 read only 모드라 수정이 불가능
 	//			  따라서 포인터 temp_Ptr를 정의하고 &health_data로 초기화하여  
 	//			  health_data.total_calories_burned 혹은 health_data.total_calories_intake에 접근 
-	
+	*/
 	
 	
 	
@@ -66,22 +67,17 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     for(i=0;i<health_data->exercise_count;i++){
     	
     	//@@fputc인가 뭐시기를 이용하여 단어 출력  
-    	fprintf(file, " - %d kcal \n",health_data->exercises[i].calories_burned_per_minute); 
+    	fprintf(file, " - %d kcal \n", (health_data->exercises[i].calories_burned_per_minute)); 
     	//+ 추가설명: project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성  
-    	
-    	calculation_sofar_E += health_data->exercises[i].calories_burned_per_minute;
-    	//+ 추가설명: 소모한 총 칼로리 계산을 위해 대입연산자를 이용하여 calcultaion_sofar_E값을 업데이트
-		
-		(*temp_Ptr)->total_calories_burned = calculation_sofar_E;
-		//+ 추가설명: health_data database의 total_calories_burned멤버에 계산한 총 소모 칼로리를 대입 
-		 
-
+    
 	}
 	
 	//[코드작성] 3 - 이때까지 소모한 총 칼로리를 fprintf를 이용하여 health_data.txt파일에 출력 
 	fprintf(file,"Total calories burned - %d kcal \n",health_data->total_calories_burned);
 
 
+    
+    
     
     
     //[코드작성] 5. saveData함수에 변경된 diet내용을 저장 
@@ -95,17 +91,14 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     	fprintf(file, " - %d kcal \n",health_data->diet[i].calories_intake);
     	//+ 추가설명: project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성 
 		
-		calculation_sofar_D += health_data->diet[i].calories_intake;
-    	//+ 추가설명: 섭취한 총 칼로리 계산을 위해 대입연산자를 이용하여 calcultaion_sofar_D값을 업데이트
-		
-		(*temp_Ptr)->total_calories_intake = calculation_sofar_D;
-		//+ 추가설명: health_data database의 total_calories_intake멤버에 계산한 총 섭취 칼로리를 대입  
-
-
 	}
 
 	//[코드작성] 5 - 이때까지 얻은 칼로리를 health_data.txt 파일에 저장 
 	fprintf(file,"Total calories intaken - %d kcal \n",health_data->total_calories_intake);
+
+
+
+
 
 
 

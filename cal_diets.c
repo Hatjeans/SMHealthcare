@@ -89,7 +89,7 @@ void loadDiets(const char* DIETFILEPATH) {
 // [코드작성] 4. choice가 2일때 diet_list를 출력  
 void inputDiet(HealthData* health_data) {
     int choice, i;
-    int cnt=0; // + 추가설명 : 하루에 3끼를 먹는것을 체크하기 위한 cnt변수 (0~2) 
+    int cnt; // + 추가설명 : 하루에 3끼를 먹는것을 체크하기 위한 cnt변수 (0~2) 
     int calculation;//+추가설명 : 뒤line@@에섭취한 개별 칼로리를 저장할 변수를 설정. total_calories로 하려했으나 다른 파일에 비슷한 변수가 존재해 calculation으로 표현.  
     int calculation_so_far;//+추가설명 : 이때까지 구한 calculation을 합산한 결과.  비슷한 변수 충돌 및 헷갈림 방지를 위해 calculation_so_far로 표현
     
@@ -116,24 +116,7 @@ void inputDiet(HealthData* health_data) {
 		return;
 	
 	//[코드작성] 4 - 아침 점심 저녁 중 어떤 식사를 하였는지 보여줌 입력한 항목과 얻은 칼로리양을 보여줌  
-	switch(cnt){
-		
-		case 0:
-		printf("you ate breakfast!\n");
-		break;
-		
-		case 1:
-		printf("you ate lunch!\n");
-		break;
-		
-		case 2:
-		printf("you ate dinner!\n"); 
-		break;
-		
-	}
-	
-	//[코드작성] 4 - 아침 점심 저녁 중 어떤 식사를 하였는지 보여줌 입력한 항목과 얻은 칼로리양을 보여줌  
-	printf("You earned < %d : %s  %d kcal> \n", choice, diet_list[choice-1].food_name,diet_list[choice-1]);
+	printf("You earned < %d : %s  %d kcal> \n", choice, diet_list[choice-1].food_name,diet_list[choice-1].calories_intake);
     
 
     // ToCode: to enter the selected diet in the health data
@@ -160,28 +143,20 @@ void inputDiet(HealthData* health_data) {
 	
 	
     // ToCode: to enter the total calories intake in the health data
-     
-     
-     /*
     //[코드작성] 2 - health_data 포인터와 -> 연산자를 이용하여 database구조체의 total_calories_burned에 접근후 값을 업데이트 	
-	calculation_so_far += calculation; // + 추가 설명 : 대입 연산자를 이용해 calculation을 더한 값을 계속 업데이트   
-	health_data->total_calories_intake = calculation_so_far;// health_data database의 total calories burned in the health data에 최종 값 calculation_so_far을 업데이트 	
-	*/
-	
+	health_data->total_calories_intake += calculation;// health_data database의 total calories burned in the health data에 최종 값 calculation_so_far을 업데이트 	
+
 	
 	
 	
 	// @@database에 잘 저장되었는지 확인하기 위한 장치  
 	printf("%d %s \n",	health_data->diet[health_data->diet_count].calories_intake,health_data->diet[health_data->diet_count].food_name);
-
-	
-	
+	printf("%d \n",	health_data->total_calories_intake);
 	
 	
 	
 	//[코드작성] 2 - 입력할 때마다 순서를 늘려주어야 하므로 후위 연산자를 사용  
 	health_data->diet_count++;
-	cnt=(cnt+1)%3; // + 추가설명 : 상어게임의 turn수 변환을 참고하여 구현. 하루에 세끼 씩만 먹으므로 cnt수는 (0~2)의 범위만을 갖게 하였음 
 	
 	
 	// @@순서가 잘 증가하는지 확인하기 위한 장치  
