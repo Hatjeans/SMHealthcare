@@ -221,13 +221,3 @@ Exercise exercises[MAX_EXERCISES];  // exercise history
 
 
 
-
-//[코드작성]1 - exercise_list가 static선언 되어있어서 main함수에서 프린트하기가 까다로움 따라서 print하는 함수를 추가
-void print_exercise_list(void) 
-{
-	int i;
-	
-	for(i=0;i<exercise_list_size;i++)
-	printf("%s %d kcal per min \n",exercise_list[i].exercise_name,exercise_list[i].calories_burned_per_minute);
-}
-

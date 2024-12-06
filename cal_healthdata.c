@@ -25,7 +25,8 @@
     			3. save the total remaining calrories
 */
 
-//[코드작성] 3. saveData함수에 변경된 내용을 저장.
+//[코드작성] 3. saveData함수에 변경된 exercise내용을 저장.
+//[코드작성] 5. saveData함수에 변경된 diet내용을 저장 
 
 
 
@@ -37,21 +38,39 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
         return;
     }
 
+	//[코드작성] 3. saveData함수에 변경된 exercise내용을 저장.
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
     
     //[코드작성] 3- for문과 fprintf를 이용하여 이때까지 입력받은 exercise이름과 duration동안 소모한 총 칼로리를 health_data.txt파일에 저장
     for(i=0;i<health_data->exercise_count;i++){
-    	fprintf(file, "%d\n",health_data->exercises[i].calories_burned_per_minute); 
+    	
+    	//@@fputc인가 뭐시기를 이용하여 단어 출력  
+    	fprintf(file, " - %d kcal \n",health_data->exercises[i].calories_burned_per_minute); 
+
+	}
+	
+	//[코드작성] 3 - 이때까지 소모한 총 칼로리를 health_data.txt 파일에 저장 
+	fprintf(file,"Total calories burned - %d kcal \n",health_data->total_calories_burned);
+
+
+    
+    
+    //[코드작성] 5. saveData함수에 변경된 diet내용을 저장 
+    // ToCode: to save the chosen diet and total calories intake 
+    fprintf(file, "\n[Diets] \n");
+
+    //[코드작성] 5- for문과 fprintf를 이용하여 이때까지 입력받은 diet이름과 칼로리를 health_data.txt파일에 저장
+    for(i=0;i<health_data->diet_count;i++){
+    	
+    	    	//@@fputc인가 뭐시기를 이용하여 단어 출력
+    	fprintf(file, " - %d kcal \n",health_data->diet[i].calories_intake); 
 
 	}
 
+	//[코드작성] 5 - 이때까지 얻은 칼로리를 health_data.txt 파일에 저장 
+	fprintf(file,"Total calories intaken - %d kcal \n",health_data->total_calories_intake);
 
-    
-    
-    
-    // ToCode: to save the chosen diet and total calories intake 
-    fprintf(file, "\n[Diets] \n");
 
 
 

@@ -180,12 +180,3 @@ void inputDiet(HealthData* health_data) {
 }
 
 
-//[코드작성]1 - diet_list가 static선언 되어있어서 main함수에서 프린트하기가 까다로움 따라서 print하는 함수를 추가
-void print_diet_list(void)   
-{
-	int i;
-	
-	for(i=0;i<diet_list_size;i++)
-	printf("%s %d kcal \n",diet_list[i].food_name,diet_list[i].calories_intake);
-}
-
