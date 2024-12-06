@@ -133,6 +133,8 @@ int main() {
     			saveData(HEALTHFILEPATH, &health_data);
                 break;
                 
+                
+                
             default:
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");

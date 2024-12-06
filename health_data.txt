@@ -1,8 +1,15 @@
 [Exercises] 
-1080
-990
-320
+ - 990 kcal 
+ - 320 kcal 
+ - 480 kcal 
+ - 360 kcal 
+Total calories burned - 360 kcal 
 
 [Diets] 
+ - 925 kcal 
+ - 615 kcal 
+Total calories intaken - 11408823 kcal 
 
 [Total] 
+Basal metabolic rate - 1300 kcal 
+The remaining calories - 11407163 kcal 

@@ -32,8 +32,13 @@
 
 void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	int i;
-	int remaining_calories; //+ 추가설명: [코드작성] 6에서 remaining_calories백업을 위한 함수 
-	 
+
+	// + 추가설명 : 변수 추가  
+	int calculation_sofar_E; // + 추가설명: [코드작성] 3에서 총 소모한 칼로리를 계산하기 위한 변수  
+	int calculation_sofar_D; // + 추가설명: [코드작성] 5에서 총 섭취한 칼로리를 계산하기 위한 변스  
+	int remaining_calories; //+ 추가설명: [코드작성] 6에서 remaining_calories백업을 위한 변수
+	
+	
     FILE* file = fopen(HEALTHFILEPATH, "w"); // HEALTHFILEPATH == "health_data.txt"
     if (file == NULL) {
         printf("There is no file for health data.\n");
@@ -49,10 +54,18 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     	
     	//@@fputc인가 뭐시기를 이용하여 단어 출력  
     	fprintf(file, " - %d kcal \n",health_data->exercises[i].calories_burned_per_minute); 
+    	//+ 추가설명: project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성  
+    	
+    	calculation_sofar_E += health_data->exercises[i].calories_burned_per_minute;
+    	//+ 추가설명: 소모한 총 칼로리 계산을 위해 대입연산자를 이용하여 calcultaion_sofar_E값을 업데이트
+		
+		//health_data->total_calories_burned = calculation_sofar_E;
+		//+ 추가설명: health_data database의 total_calories_burned멤버에 계산한 총 소모 칼로리를 대입 
+		 
 
 	}
 	
-	//[코드작성] 3 - 이때까지 소모한 총 칼로리를 health_data.txt 파일에 저장 
+	//[코드작성] 3 - 이때까지 소모한 총 칼로리를 fprintf를 이용하여 health_data.txt파일에 출력 
 	fprintf(file,"Total calories burned - %d kcal \n",health_data->total_calories_burned);
 
 
@@ -66,7 +79,14 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     for(i=0;i<health_data->diet_count;i++){
     	
     	    	//@@fputc인가 뭐시기를 이용하여 단어 출력
-    	fprintf(file, " - %d kcal \n",health_data->diet[i].calories_intake); 
+    	fprintf(file, " - %d kcal \n",health_data->diet[i].calories_intake);
+    	//+ 추가설명: project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성 
+		
+		calculation_sofar_D += health_data->diet[i].calories_intake;
+    	//+ 추가설명: 섭취한 총 칼로리 계산을 위해 대입연산자를 이용하여 calcultaion_sofar_D값을 업데이트
+		
+		//health_data->total_calories_intake = calculation_sofar_D;
+		//+ 추가설명: health_data database의 total_calories_intake멤버에 계산한 총 섭취 칼로리를 대입  
 
 	}
 
@@ -81,8 +101,10 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 
     //[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산 
 	fprintf(file,"Basal metabolic rate - %d kcal \n",BASAL_METABOLIC_RATE);
+	
 	//[코드작성] 6 - 남은 칼로리 (섭취 칼로리 - 기초 대사량 - 소모 칼로리) 계산 
 	remaining_calories =  health_data->total_calories_intake - (BASAL_METABOLIC_RATE+health_data->total_calories_burned);
+    fprintf(file,"The remaining calories - %d kcal \n",remaining_calories);
     
     
     fclose(file);

@@ -133,7 +133,7 @@ void inputDiet(HealthData* health_data) {
 	}
 	
 	//[코드작성] 4 - 아침 점심 저녁 중 어떤 식사를 하였는지 보여줌 입력한 항목과 얻은 칼로리양을 보여줌  
-	printf("You earned < %d : %s  %d kcal> \n", choice, diet_list[choice-1].food_name);
+	printf("You earned < %d : %s  %d kcal> \n", choice, diet_list[choice-1].food_name,diet_list[choice-1]);
     
 
     // ToCode: to enter the selected diet in the health data
@@ -158,16 +158,26 @@ void inputDiet(HealthData* health_data) {
 	//          (우변) : 사용자가 입력한 음식의 칼로리양을 diet[]배열의 calories_intake멤버에 저장                              
 	
 	
-
+	
     // ToCode: to enter the total calories intake in the health data
      
+     
+     /*
     //[코드작성] 2 - health_data 포인터와 -> 연산자를 이용하여 database구조체의 total_calories_burned에 접근후 값을 업데이트 	
 	calculation_so_far += calculation; // + 추가 설명 : 대입 연산자를 이용해 calculation을 더한 값을 계속 업데이트   
 	health_data->total_calories_intake = calculation_so_far;// health_data database의 total calories burned in the health data에 최종 값 calculation_so_far을 업데이트 	
+	*/
+	
+	
 	
 	
 	// @@database에 잘 저장되었는지 확인하기 위한 장치  
 	printf("%d %s \n",	health_data->diet[health_data->diet_count].calories_intake,health_data->diet[health_data->diet_count].food_name);
+
+	
+	
+	
+	
 	
 	//[코드작성] 2 - 입력할 때마다 순서를 늘려주어야 하므로 후위 연산자를 사용  
 	health_data->diet_count++;

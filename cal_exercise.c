@@ -175,13 +175,13 @@ void inputExercise(HealthData* health_data) {
 	
 	
 	
-	
+	/*
     // ToCode: to enter the selected exercise and *total calcories burned in the health data [교수님 주석 수정]
     // + 추가설명 : line @@에 표시한 total calories burned in the health data를 여기에 구현 
-    
     //[코드작성] 2 - health_data 포인터와 -> 연산자를 이용하여 database구조체의 total_calories_burned에 접근후 값을 업데이트 	
 	calculation_so_far += calculation; // + 추가 설명 : 대입 연산자를 이용해 calculation을 더한 값을 계속 업데이트   
 	health_data->total_calories_burned = calculation_so_far;// health_data database의 total calories burned in the health data에 최종 값 calculation_so_far을 업데이트 	
+	*/
 	
 	
 	
