@@ -17,7 +17,7 @@
 #define MAX_DIETS 100      			// Maximum number of diets
 #define MAX_FOOD_NAME_LEN 50		// Maximum length of the name of food
 
-//[코드작성] 1.프로그램 시작과 함께 diet.txt로부터 식단관련 정보를 읽어와 diet_list[]라는 database 배열에 저장
+// [코드작성] 1.프로그램 시작과 함께 diet.txt로부터 식단관련 정보를 읽어와 diet_list[]라는 database 배열에 저장
 // [코드작성] 4. choice가 2일때 diet_list를 출력 
 
 

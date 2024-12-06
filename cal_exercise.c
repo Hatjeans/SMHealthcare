@@ -45,11 +45,13 @@ int exercise_list_size = 0;
  //[코드작성] 1. 프로그램 시작과 함께 exercise.txt로부터 운동관련 정보를 읽어와 exercise_list[]라는 database 배열에 저장 *주로 loadExercise함수와 관련  
 void loadExercises(const char* EXERCISEFILEPATH) {
 	
+	int i;
 	
+	//+ 추가 설명 : 추가 변수 정의  
 	char word[100];//[코드작성] 1 - 파일에서 읽어올 글자를 한글자씩 담는 일시적인 배열  
 	int calories; //[코드작성] 1 - 파일에서 읽어올 글자를 한글자씩 담는 일시적인 변수  
 	int cnt=0; // [코드작성] 1 - diet_list[]라는 database에 몇번째로 들어가는지 필요한 인덱스 개념 
-	int i;
+
 	
     FILE *file = fopen(EXERCISEFILEPATH, "r");
     
@@ -62,7 +64,7 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     // 운동의 후보군은 'exercise.txt' 파일로부터 읽어와서 저장하며, 아래와 같은 형식으로 저장하고 있음.
 	// (사용자가 선택한 운동)*(운동시간 [min]) = (총 소모 칼로리 [kcal]) 
 			
-    while (fscanf(file, "%s %d", word, &calories) != EOF) {
+    while (fscanf(file, "%s", word, &calories) != EOF) {
     	
         if (exercise_list_size >= MAX_EXERCISES){ 
         	break;
@@ -196,27 +198,6 @@ void inputExercise(HealthData* health_data) {
 	printf("%d\n",health_data->exercise_count);
 
 
-	
-
-
-/*
-Exercise exercises[MAX_EXERCISES];  // exercise history 
-// Typedef를 이용하여 exercises 구조체를 정의해서 주셨다. 
-//exercise_count변수를 이용해서  운동을 했을때마다 순서가 매겨지는 것을 이용하면 좋을 것 같다.  
- 
-    Diet diet[MAX_DIETS];                // diet history
-// Typedef를 이용하여 Diet 구조체를 정의해서 주셨다. 
-//diet_count변수를 이용해서  운동을 했을때마다 순서가 매겨지는 것을 이용하면 좋을 것 같다.  
-    
-    int exercise_count;                  // number of exercises
-    int diet_count;                      // number of diets
-    int total_calories_burned;   
-    
-    
-    
-    exercise_name[MAX_EXERCISE_NAME_LEN];	// the name of the exercise
-    int calories_burned_per_minute
-*/
 }
 
 
