@@ -145,7 +145,8 @@ void inputExercise(HealthData* health_data) {
     
     
     
-    // ToCode: to enter the selected exercise and total calcories burned in the health data
+    // ToCode: to enter the selected exercise and *total calcories burned in the health data [교수님 주석 수정] 
+    // + 추가설명 : 코드가 너무 길어질 것 같아 total calories burnedin the health data 지시는 line@@에 다시한번 표시  
 
 	//[코드작성] 2 - health_data 포인터와 ->연산자를  사용하여 database구조체의 exercise[]멤버에 접근
 	//				이때 exercise[]는 배열 멤버로 배열의 인덱스는 exercise를 입력받는 횟수인 exercise_count를 사용함. 
@@ -162,14 +163,22 @@ void inputExercise(HealthData* health_data) {
 	  
 	//(a) database 속 exercise[]배열에 사용자가 선택한 운동의 이름을 입력한 순서대로 저장 
 	strcpy(health_data->exercises[health_data->exercise_count].exercise_name,exercise_list[choice-1].exercise_name);
-	//+추가설명 : strcpy(a,b) 함수를 이용하여 사용자가 선택한 운동의 이름(b)를 복사하여 exercise[]배열의 운동이름에 입력받는 순서(exercise_count)에 따라 저장 
+	//+추가설명 : strcpy(a,b) 함수를 이용하여 사용자가 선택한 운동의 이름(b)를 복사하여 exercise[]배열의 운동이름에 입력받는 순서(exercise_count)에 따라 저장  
 	 
 	 
 	//(b) database 속 exercise[]배열의 calories_burned_per_minute맴버에 duration동안 소모한 총 칼로리를 입력한 순서대로 저장  
-	health_data->exercises[health_data->exercise_count].calories_burned_per_minute = (exercise_list[choice-1].calories_burned_per_minute)*duration;
+	health_data->exercises[health_data->exercise_count].calories_burned_per_minute = calculation;
 	//+추가설명 (좌변) : 구조체 포인터 health_data와 -> 연산자를 이용하여 duration 동안 소모한 총 칼로리를 저장하는 공간인 (이름만 per_minute인..) calories_burned_per_minute에 접근함 
 	//          (우변) : 앞에서 구한 calculation을 exercise[]배열의 calories_burned_per_minute멤버에 저장                              
 	
+	
+	
+	
+    // ToCode: to enter the selected exercise and *total calcories burned in the health data [교수님 주석 수정]
+    // + 추가설명 : line @@에 표시한 total calories burned in the health data를 여기에 구현 
+	
+	
+
 	
 	
 	// database에 잘 저장되었는지 확인하기 위한 장치  
