@@ -29,7 +29,7 @@
 //[코드작성] 5. saveData함수에 변경된 diet내용을 저장 
 //[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산 및 health_data.txt파일에 출력
 //[코드작성] 7. show logged information 옵션 선택시, 현재까지 진행한 식사와 운동을 도스 창에 출력   
-
+//[코드작성] 8. printHealthData() 함수에서 사용자에게 추천사항을 제공 
 
 
 
@@ -106,7 +106,6 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	
 	//[코드작성] 6 - 남은 칼로리 (섭취 칼로리 - 기초 대사량 - 소모 칼로리) 계산 
 	remaining_calories = (health_data->total_calories_intake) - (BASAL_METABOLIC_RATE+(health_data->total_calories_burned));
-	//+ 추가설명: 
     fprintf(file,"The remaining calories - %d kcal \n",remaining_calories);
     
     
@@ -129,6 +128,11 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 //[코드작성] 7. show logged information 옵션 선택시, 현재까지 진행한 식사와 운동을 도스 창에 출력   
 void printHealthData(const HealthData* health_data) {
 	int i;
+	
+	//+ 추가설명 : 변수 추가  
+	int remaining; //[코드작성] 7 - 남은칼로리 변수 정의 및 초기화  
+	remaining = (health_data->total_calories_intake) - (BASAL_METABOLIC_RATE+(health_data->total_calories_burned));
+	
 	
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
@@ -166,14 +170,44 @@ void printHealthData(const HealthData* health_data) {
 		printf("Basal Metabolic Rate   : %d\n",BASAL_METABOLIC_RATE);
 		printf("Total calories burned  : %d\n",(health_data->total_calories_burned));
 		printf("Total calories intake  : %d\n",(health_data->total_calories_intake));
-		printf("The remaining calories : %d\n",(health_data->total_calories_intake) - (BASAL_METABOLIC_RATE+(health_data->total_calories_burned)));
+		printf("The remaining calories : %d\n",remaining);
  
  
     printf("=======================================================================\n \n");
     
 	
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake    
-    
+    if (remaining==0)
+		return;
+		
+	if (remaining<0){
+		
+		printf("[Warning] Too few calories! \n");
+		
+		if(health_data->total_calories_intake==DAILY_CALORIE_GOAL)
+		printf("Your total calories intake for today has reached your goal!\n");
+		
+		if(health_data->total_calories_intake<DAILY_CALORIE_GOAL)
+		printf("Your total calories intake for today has not reached you goal!, remember to eat more!!\n");
+		
+		if(health_data->total_calories_intake>DAILY_CALORIE_GOAL)
+		printf("You have eaten more calories than planned today, but you have exercised too much!\n");
+		
+	}
+	
+	if (remaining>0){
+		
+		printf("Please exercise for your health! \n");
+		
+		if(health_data->total_calories_intake==DAILY_CALORIE_GOAL)
+		printf("Your total calories intake for today has reached your goal!\n");
+		
+		if(health_data->total_calories_intake<DAILY_CALORIE_GOAL)
+		printf("Your total calories intake for today has not reached you goal!, remember to eat more!!\n");
+		
+		
+	}
+	 
     
 	 printf("=======================================================================\n");
 }

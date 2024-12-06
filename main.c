@@ -34,7 +34,7 @@
 //[코드작성] 5. saveData함수에 변경된 diet내용을 저장 
 //[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산및 health_data.txt 파일에 출력  
 //[코드작성] 7. show logged information 옵션 선택시, 현재까지 진행한 식사와 운동을 도스 창에 출력   
-
+//[코드작성] 8. printHealthData() 함수에서 사용자에게 추천사항을 제공 
 
 
 static int choice;
@@ -60,9 +60,13 @@ int main() {
     // 시스템 종료조건 도달시, 시스템 종료 및 'health_data.txt'파일저장. 
 
     do {
-    	if ( 0 ){ // if 조건안에 1. 모든 칼로리가 소모되었을 때를 표현 (남은 칼로리 =0) //**나중에 수정요망 
-    	        // 시스템 종료조건 도달시, 시스템 종료 및 'health_data.txt'파일저장. 
+    	if ( (health_data.diet_count!=0||health_data.exercise_count!=0)&&(health_data.total_calories_intake - (DAILY_CALORIE_GOAL+(health_data.total_calories_burned))==0)) { // if 조건안에 1. 모든 칼로리가 소모되었을 때를 표현 (남은 칼로리 =0) //**@@나중에 수정요망 
+    	    
+			saveData(HEALTHFILEPATH, &health_data);// 시스템 종료조건 도달시, 시스템 종료 및 'health_data.txt'파일저장. 
             printf("You have consumed all your calories for today! \n");
+            
+            break;
+            
 		} 
 		else{
 			printf("\n=======================================================================\n");
@@ -121,7 +125,9 @@ int main() {
 			//					2. 섭취 칼로리가 일일 권장 칼로리보다 적은 경우 "Your total Calorie intake for today has not reached your goal, remeber to eat more!!"
             
 			case 3:
-            	printHealthData(&health_data);
+		
+            	printHealthData(&health_data); //[코드작성] 7. show logged information 옵션 선택시, 현재까지 진행한 식사와 운동을 도스 창에 출력   
+
                 break;
                 
                 
@@ -141,6 +147,7 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
+        
     } while ( 1 );
 
     return 0;

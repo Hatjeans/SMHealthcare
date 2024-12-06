@@ -1,13 +1,14 @@
 [Exercises] 
-walking - 400 kcal 
-running - 990 kcal 
-Total calories burned - 1390 kcal 
+pilates - 400 kcal 
+walking - 100 kcal 
+Total calories burned - 500 kcal 
 
 [Diets] 
- - 0 kcal 
-salad - 70 kcal 
-Total calories intaken - 70 kcal 
+rice - 600 kcal 
+rice - 600 kcal 
+rice - 600 kcal 
+Total calories intaken - 1800 kcal 
 
 [Total] 
 Basal metabolic rate - 1300 kcal 
-The remaining calories - -2620 kcal 
+The remaining calories - 0 kcal 
