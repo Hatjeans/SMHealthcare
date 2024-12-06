@@ -1,12 +1,13 @@
 [Exercises] 
-Total calories burned - 0 kcal 
+walking - 400 kcal 
+running - 990 kcal 
+Total calories burned - 1390 kcal 
 
 [Diets] 
-rice - 600 kcal 
-bread - 680 kcal 
-chicken - 925 kcal 
-Total calories intaken - 2205 kcal 
+ - 0 kcal 
+salad - 70 kcal 
+Total calories intaken - 70 kcal 
 
 [Total] 
 Basal metabolic rate - 1300 kcal 
-The remaining calories - 905 kcal 
+The remaining calories - -2620 kcal 

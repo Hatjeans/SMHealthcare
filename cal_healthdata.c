@@ -27,7 +27,9 @@
 
 //[코드작성] 3. saveData함수에 변경된 exercise내용을 저장.
 //[코드작성] 5. saveData함수에 변경된 diet내용을 저장 
-//[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산 
+//[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산 및 health_data.txt파일에 출력
+//[코드작성] 7. show logged information 옵션 선택시, 현재까지 진행한 식사와 운동을 도스 창에 출력   
+
 
 
 
@@ -41,15 +43,6 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	int calculation_sofar_E; // + 추가설명: [코드작성] 3에서 총 소모한 칼로리를 계산하기 위한 변수  
 	int calculation_sofar_D; // + 추가설명: [코드작성] 5에서 총 섭취한 칼로리를 계산하기 위한 변스  
 	int remaining_calories; //+ 추가설명: [코드작성] 6에서 remaining_calories백업을 위한 변수
-	
-	/*
-	//[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산 
-	HealthData** temp_Ptr = &health_data; 
-	//+추가설명 : void saveData(const char* HEALTHFILEPATH, const HealthData* health_data)에서 
-	//			  health_data가 constant 변수로 정의되어있어서 read only 모드라 수정이 불가능
-	//			  따라서 포인터 temp_Ptr를 정의하고 &health_data로 초기화하여  
-	//			  health_data.total_calories_burned 혹은 health_data.total_calories_intake에 접근 
-	*/
 	
 	
 	
@@ -89,7 +82,7 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     for(i=0;i<health_data->diet_count;i++){
     	
     	fprintf(file, "%s",health_data->diet[i].food_name);
-		//+ 추가설명 : project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성 
+		//+ 추가설명: project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성 
 		
     	fprintf(file, " - %d kcal \n",health_data->diet[i].calories_intake);
     	//+ 추가설명: project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성 
@@ -104,16 +97,16 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 
 
 
-
     // ToCode: to save the total remaining calrories
     fprintf(file, "\n[Total] \n");
     
 
-    //[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산 
+    //[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산 및 health_data.txt파일에 출력 
 	fprintf(file,"Basal metabolic rate - %d kcal \n",BASAL_METABOLIC_RATE);
 	
 	//[코드작성] 6 - 남은 칼로리 (섭취 칼로리 - 기초 대사량 - 소모 칼로리) 계산 
 	remaining_calories = (health_data->total_calories_intake) - (BASAL_METABOLIC_RATE+(health_data->total_calories_burned));
+	//+ 추가설명: 
     fprintf(file,"The remaining calories - %d kcal \n",remaining_calories);
     
     
@@ -132,18 +125,36 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     			3. print out the saved history of calories
 */
 
+
+//[코드작성] 7. show logged information 옵션 선택시, 현재까지 진행한 식사와 운동을 도스 창에 출력   
 void printHealthData(const HealthData* health_data) {
 	int i;
 	
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
-  
+	
+    	for(i=0;i<health_data->exercise_count;i++){
+    	
+    	printf("Exercise : %s, ",health_data->exercises[i].exercise_name);
+    	//+ 추가설명: database의 exercises[]배열의 exercise_name을 출력 
+    	printf("Calories burned : %d kcal \n", (health_data->exercises[i].calories_burned_per_minute)); 
+    	//+ 추가설명: database의 exercises[]배열의 duration동안 소모한 칼로리를 출력 
+    
+		}
   
     printf("=======================================================================\n");
 
     // ToCode: to print out the saved history of diets
     printf("============================= History of Diet =========================\n");
 
+    	for(i=0;i<health_data->diet_count;i++){
+    	
+    	printf("Food : %s, ",health_data->diet[i].food_name);
+    	//+ 추가설명: database의 diet[]배열의 food_name을 출력 
+    	printf("Calories intake : %d kcal \n", (health_data->diet[i].calories_intake)); 
+    	//+ 추가설명: database의 diet[]배열의 섭취한 칼로리를 출력 
+    
+		}
 
     printf("=======================================================================\n");
 
@@ -151,6 +162,11 @@ void printHealthData(const HealthData* health_data) {
 	// ToCode: to print out the saved history of calories including basal metabolic rate, 
 	// total calories burned, total calories intake, and the remaining calories
 	printf("============================== Total Calories =========================\n");
+ 	
+		printf("Basal Metabolic Rate   : %d\n",BASAL_METABOLIC_RATE);
+		printf("Total calories burned  : %d\n",(health_data->total_calories_burned));
+		printf("Total calories intake  : %d\n",(health_data->total_calories_intake));
+		printf("The remaining calories : %d\n",(health_data->total_calories_intake) - (BASAL_METABOLIC_RATE+(health_data->total_calories_burned)));
  
  
     printf("=======================================================================\n \n");
