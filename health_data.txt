@@ -1,14 +1,10 @@
 [Exercises] 
-pilates - 400 kcal 
-walking - 100 kcal 
-Total calories burned - 500 kcal 
+Total calories burned - 0 kcal 
 
 [Diets] 
 rice - 600 kcal 
-rice - 600 kcal 
-rice - 600 kcal 
-Total calories intaken - 1800 kcal 
+Total calories intaken - 600 kcal 
 
 [Total] 
 Basal metabolic rate - 1300 kcal 
-The remaining calories - 0 kcal 
+The remaining calories - -700 kcal 

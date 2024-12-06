@@ -22,7 +22,7 @@
 
 
 // list of diets 
-static Diet diet_list[MAX_DIETS]; //[코드작성] 1 - 식단 관련 정보를 담을 diet_list[]라는 database 
+static Diet diet_list[MAX_DIETS]; //[코드작성] 1 - 식단 관련 정보를 담을 diet_list[]라는 database.
 static int diet_list_size = 0;  
 
 
@@ -111,56 +111,56 @@ void inputDiet(HealthData* health_data) {
 	printf(" : ");
 	scanf("%d", &choice);
     
-    //[코드작성] 4 - exit option으로 -1을 넣으면 exit하여 다시 [Healthcare Management Systems] 시스템에 돌아갈 수 있도록 함. 
-	if (choice == -1) 
-		return;
-	
-	//[코드작성] 4 - 아침 점심 저녁 중 어떤 식사를 하였는지 보여줌 입력한 항목과 얻은 칼로리양을 보여줌  
-	printf("You earned < %d : %s  %d kcal> \n", choice, diet_list[choice-1].food_name,diet_list[choice-1].calories_intake);
+
+	if(0<choice&&choice<=diet_list_size){
+
+		//[코드작성] 4 - 아침 점심 저녁 중 어떤 식사를 하였는지 보여줌 입력한 항목과 얻은 칼로리양을 보여줌  
+		printf("You earned < %d : %s  %d kcal> \n", choice, diet_list[choice-1].food_name,diet_list[choice-1].calories_intake);
     
 
-    // ToCode: to enter the selected diet in the health data
-    
-    //[코드작성] 4 - health_data 포인터와 ->연산자를  사용하여 database구조체의 diet[]멤버에 접근
-	//				이때 diet[]는 배열 멤버로 배열의 인덱스는 diet를 입력받는 횟수인 diet_count(0~2)를 사용함. 
-	//				diet_count접근을 위해 healt_data 포인터와  -> 연산자를 활용! 
-	// 
-	//				database구조체 내 diet[]배열의 멤버는 calories_intake와 food_name임
-	//				database 속 diet[]배열에 사용자가 선택한 음식의 이름과 입력받은 음식의 칼로리를 저장해야함
-	//				health_data.diet[].food_name에 섭취한 음식의 이름을 넣고, health_data.diet[].calories_intake에 입력받은 음식의 칼로리를 넣으면됨.   
+    	// ToCode: to enter the selected diet in the health data
+    	
+    	//[코드작성] 4 - health_data 포인터와 ->연산자를  사용하여 database구조체의 diet[]멤버에 접근
+		//				이때 diet[]는 배열 멤버로 배열의 인덱스는 diet를 입력받는 횟수인 diet_count(0~2)를 사용함. 
+		//				diet_count접근을 위해 healt_data 포인터와  -> 연산자를 활용! 
+		// 
+		//				database구조체 내 diet[]배열의 멤버는 calories_intake와 food_name임
+		//				database 속 diet[]배열에 사용자가 선택한 음식의 이름과 입력받은 음식의 칼로리를 저장해야함
+		//				health_data.diet[].food_name에 섭취한 음식의 이름을 넣고, health_data.diet[].calories_intake에 입력받은 음식의 칼로리를 넣으면됨.   
 	  
-	//(a) database 속 diet[]배열에 사용자가 선택한 음식의 이름을 입력한 순서대로 저장 
-	strcpy(health_data->diet[health_data->diet_count].food_name,diet_list[choice-1].food_name);
-	//+추가설명 : strcpy(a,b) 함수를 이용하여 사용자가 선택한 음식의 이름(b)를 복사하여 diet[].food_name에 입력받는 순서(diet_count)인덱스를 가지는 방에 저장 
+		//(a) database 속 diet[]배열에 사용자가 선택한 음식의 이름을 입력한 순서대로 저장 
+		strcpy(health_data->diet[health_data->diet_count].food_name,diet_list[choice-1].food_name);
+		//+추가설명 : strcpy(a,b) 함수를 이용하여 사용자가 선택한 음식의 이름(b)를 복사하여 diet[].food_name에 입력받는 순서(diet_count)인덱스를 가지는 방에 저장 
 	 
 	 
-	//(b) database 속 diet[]배열의 calories_burned_per_minute맴버에 섭취한 개별 칼로리를 입력한 순서대로 저장
-	calculation = diet_list[choice-1].calories_intake;
-	health_data->diet[health_data->diet_count].calories_intake = calculation;
-	//+추가설명 (좌변) : 구조체 포인터 health_data와 -> 연산자를 이용하여 diet[].calories_intake에 접근   
-	//          (우변) : 사용자가 입력한 음식의 칼로리양을 diet[]배열의 calories_intake멤버에 저장                              
+		//(b) database 속 diet[]배열의 calories_burned_per_minute맴버에 섭취한 개별 칼로리를 입력한 순서대로 저장
+		calculation = diet_list[choice-1].calories_intake;
+		health_data->diet[health_data->diet_count].calories_intake = calculation;
+		//+추가설명 (좌변) : 구조체 포인터 health_data와 -> 연산자를 이용하여 diet[].calories_intake에 접근   
+		//          (우변) : 사용자가 입력한 음식의 칼로리양을 diet[]배열의 calories_intake멤버에 저장                              
 	
 	
 	
-    // ToCode: to enter the total calories intake in the health data
-    //[코드작성] 2 - health_data 포인터와 -> 연산자를 이용하여 database구조체의 total_calories_burned에 접근후 값을 업데이트 	
-	health_data->total_calories_intake += calculation;// health_data database의 total calories burned in the health data에 최종 값 calculation_so_far을 업데이트 	
+    	// ToCode: to enter the total calories intake in the health data
+    	//[코드작성] 2 - health_data 포인터와 -> 연산자를 이용하여 database구조체의 total_calories_burned에 접근후 값을 업데이트 	
+		health_data->total_calories_intake += calculation;// health_data database의 total calories burned in the health data에 최종 값 calculation_so_far을 업데이트 	
 
 	
+		//[코드작성] 2 - 입력할 때마다 순서를 늘려주어야 하므로 후위 연산자를 사용  
+		health_data->diet_count++;
 	
+	}
 	
-	// @@database에 잘 저장되었는지 확인하기 위한 장치  
-	printf("%d %s \n",	health_data->diet[health_data->diet_count].calories_intake,health_data->diet[health_data->diet_count].food_name);
-	printf("%d \n",	health_data->total_calories_intake);
+	else {
+		
+		//[코드작성] 4 - exit option으로 -1을 넣으면 exit하여 다시 [Healthcare Management Systems] 시스템에 돌아갈 수 있도록 함. 
+		if (choice == -1) 
+			return;
+		
+		else
+			printf("[Error] Invalid option.\n");
 	
-	
-	
-	//[코드작성] 2 - 입력할 때마다 순서를 늘려주어야 하므로 후위 연산자를 사용  
-	health_data->diet_count++;
-	
-	
-	// @@순서가 잘 증가하는지 확인하기 위한 장치  
-	printf("%d\n",health_data->diet_count);
+	}
 
 }
 

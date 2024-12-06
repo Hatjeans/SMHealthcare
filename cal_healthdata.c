@@ -178,7 +178,8 @@ void printHealthData(const HealthData* health_data) {
 	
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake    
     if (remaining==0)
-		return;
+		printf("You have consumed all your calories for today\n");
+		
 		
 	if (remaining<0){
 		
