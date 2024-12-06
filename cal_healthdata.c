@@ -32,6 +32,8 @@
 
 void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	int i;
+	int remaining_calories; //+ 추가설명: [코드작성] 6에서 remaining_calories백업을 위한 함수 
+	 
     FILE* file = fopen(HEALTHFILEPATH, "w"); // HEALTHFILEPATH == "health_data.txt"
     if (file == NULL) {
         printf("There is no file for health data.\n");
@@ -73,10 +75,14 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 
 
 
-
     // ToCode: to save the total remaining calrories
     fprintf(file, "\n[Total] \n");
     
+
+    //[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산 
+	fprintf(file,"Basal metabolic rate - %d kcal \n",BASAL_METABOLIC_RATE);
+	//[코드작성] 6 - 남은 칼로리 (섭취 칼로리 - 기초 대사량 - 소모 칼로리) 계산 
+	remaining_calories =  health_data->total_calories_intake - (BASAL_METABOLIC_RATE+health_data->total_calories_burned);
     
     
     fclose(file);
