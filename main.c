@@ -21,9 +21,9 @@
 
 
 //[코드작성] 1.프로그램 시작과 함께 exercise.txt, diet.txt로부터 운동관련 정보를 읽어와 exercise_list[], diet_list[] 라는 database 배열에 저장
-//[코드작성] 2. choice가 1일때 exercise_list 출력후 구조체 포인터를 이용하여 구조체에 입력받은 내용을 백업
+//[코드작성] 2. choice가 1일때 exercise_list 출력후 구조체 포인터를 이용하여 health_data 구조체에 입력받은 내용을 백업
 //[코드작성] 3. saveData함수에 변경된 내용을 저장.  
-
+//[코드작성] 4. choice가 2일때 diet_list 출력후 구조체 포인터를 이용ㅎ여  health_data 구조체에 입력받은 내용을 백업  
 
 
 static int choice;
