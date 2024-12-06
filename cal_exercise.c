@@ -104,6 +104,8 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 void inputExercise(HealthData* health_data) {
     int choice, duration, i;
     int calculation;//+추가설명 : 뒤에 calories_per_minute과 duration을 곱한 총 칼로리를 저장할 변수를 설정. total_calories로 하려했으나 다른 파일에 비슷한 변수가 존재해 calculation으로 표현.  
+    int calculation_so_far;//+추가설명 : 이때까지 구한 calculation을 합산한 결과, 비슷한 변수 충돌 및 헷갈림 방지를 위해 calculation_so_far로 표현  
+    
     
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
@@ -165,7 +167,7 @@ void inputExercise(HealthData* health_data) {
 	strcpy(health_data->exercises[health_data->exercise_count].exercise_name,exercise_list[choice-1].exercise_name);
 	//+추가설명 : strcpy(a,b) 함수를 이용하여 사용자가 선택한 운동의 이름(b)를 복사하여 exercise[]배열의 운동이름에 입력받는 순서(exercise_count)에 따라 저장  
 	 
-	 
+	
 	//(b) database 속 exercise[]배열의 calories_burned_per_minute맴버에 duration동안 소모한 총 칼로리를 입력한 순서대로 저장  
 	health_data->exercises[health_data->exercise_count].calories_burned_per_minute = calculation;
 	//+추가설명 (좌변) : 구조체 포인터 health_data와 -> 연산자를 이용하여 duration 동안 소모한 총 칼로리를 저장하는 공간인 (이름만 per_minute인..) calories_burned_per_minute에 접근함 
@@ -176,18 +178,21 @@ void inputExercise(HealthData* health_data) {
 	
     // ToCode: to enter the selected exercise and *total calcories burned in the health data [교수님 주석 수정]
     // + 추가설명 : line @@에 표시한 total calories burned in the health data를 여기에 구현 
+    
+    //[코드작성] 2 - health_data 포인터와 -> 연산자를 이용하여 database구조체의 total_calories_burned에 접근후 값을 업데이트 	
+	calculation_so_far += calculation; // + 추가 설명 : 대입 연산자를 이용해 calculation을 더한 값을 계속 업데이트   
+	health_data->total_calories_burned = calculation_so_far;// health_data database의 total calories burned in the health data에 최종 값 calculation_so_far을 업데이트 	
 	
 	
-
 	
 	
-	// database에 잘 저장되었는지 확인하기 위한 장치  
+	// @@database에 잘 저장되었는지 확인하기 위한 장치  
 	printf("%d %s \n",	health_data->exercises[health_data->exercise_count].calories_burned_per_minute,health_data->exercises[health_data->exercise_count].exercise_name );
 	
 	//[코드작성] 2 - 입력할 때마다 순서를 늘려주어야 하므로 후위 연산자를 사용  
 	health_data->exercise_count++;
 	
-	// 순서가 잘 증가하는지 확인하기 위한 장치  
+	// @@순서가 잘 증가하는지 확인하기 위한 장치  
 	printf("%d\n",health_data->exercise_count);
 
 

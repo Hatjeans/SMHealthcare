@@ -20,15 +20,6 @@
 #define BASAL_METABOLIC_RATE 1300 	// Basal metabolic rate of adult women
 
 
-
-
-// 
-//
-// HealthData my_health_data_history[MAX_HEALTH]; 구조체 정의를 위해 불가피하게 수정 
-#define MAX_HEALTH 100
-#define MAX_HEALTH_LEN 100
-
-
 // Project 응용 - 구조체화 1. 구조체 형식 정의 - Typedef struct 문법 활용  
 // Typedef를 이용하여 사용자가 새로운 자료형을 정의 typedef (원래 자료형) (새로운 자료형 이름); 
 // 현재 자료형 struct, 새로운 자료형 이름 Exercise -> 앞으로 Exercise만 써도 해당 구조체를 사용할 수 있음  

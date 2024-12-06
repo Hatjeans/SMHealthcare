@@ -3,7 +3,7 @@
 //  Calorie Diary
 //
 //  Created by Eunju Cha
-//  Developed by Haejin Lee
+//  Developed by Haejin Lee (2413732 이해진) 
 //
 
 #include <stdio.h>
@@ -18,6 +18,13 @@
 #define DIETFILEPATH "diets.txt"
 #define HEALTHFILEPATH "health_data.txt"
 
+
+// NOTICE 
+// 주석은 교수님의 주석과저의 주석은'[코드작성] (i)'와 '+추가설명'으로 이루어져있습니다. 
+// 저의 주석은 한글과 영어가 혼용되어있어 교수님의 주석과 구분가능합니다!
+
+// 다시 봐야할 부분@@으로 표시
+ 
 
 
 //[코드작성] 1.프로그램 시작과 함께 exercise.txt, diet.txt로부터 운동관련 정보를 읽어와 exercise_list[], diet_list[] 라는 database 배열에 저장
@@ -72,7 +79,6 @@ int main() {
         	// 운동의 후보군은 'exercise.txt' 파일로부터 읽어와서 저장하며, 아래와 같은 형식으로 저장하고 있음.
 			// (사용자가 선택한 운동)*(운동시간 [min]) = (총 소모 칼로리 [kcal]) 
 			
-			
             case 1: 
             
 				inputExercise(&health_data); //[코드작성] 2. choice가 1일때 exercise_list를 출력 후 구조체 포인터를 이용하여 구조체에 입력받은 내용을 백업
@@ -110,7 +116,8 @@ int main() {
 			// 남은 칼로리>0 : "Please exercise for your health"
 			//					1. 섭취 칼로리가 일일 권장 칼로리에 도달한 경우 "Your total Calorie intake for today has reached your goal!"
 			//					2. 섭취 칼로리가 일일 권장 칼로리보다 적은 경우 "Your total Calorie intake for today has not reached your goal, remeber to eat more!!"
-            case 3:
+            
+			case 3:
             	
                 break;
                 
