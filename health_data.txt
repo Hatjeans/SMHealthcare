@@ -1,14 +1,12 @@
 [Exercises] 
- - 400 kcal 
- - 1100 kcal 
- - 500 kcal 
-Total calories burned - 2000 kcal 
+Total calories burned - 0 kcal 
 
 [Diets] 
- - 600 kcal 
- - 925 kcal 
-Total calories intaken - 1525 kcal 
+rice - 600 kcal 
+bread - 680 kcal 
+chicken - 925 kcal 
+Total calories intaken - 2205 kcal 
 
 [Total] 
 Basal metabolic rate - 1300 kcal 
-The remaining calories - -1775 kcal 
+The remaining calories - 905 kcal 

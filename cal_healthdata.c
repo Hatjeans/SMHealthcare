@@ -66,7 +66,8 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     //[코드작성] 3- for문과 fprintf를 이용하여 이때까지 입력받은 exercise이름과 duration동안 소모한 총 칼로리를 health_data.txt파일에 저장
     for(i=0;i<health_data->exercise_count;i++){
     	
-    	//@@fputc인가 뭐시기를 이용하여 단어 출력  
+    	fprintf(file, "%s",health_data->exercises[i].exercise_name);
+    	//+ 추가설명: project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성 
     	fprintf(file, " - %d kcal \n", (health_data->exercises[i].calories_burned_per_minute)); 
     	//+ 추가설명: project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성  
     
@@ -87,7 +88,9 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     //[코드작성] 5- for문과 fprintf를 이용하여 이때까지 입력받은 diet이름과 칼로리를 health_data.txt파일에 저장
     for(i=0;i<health_data->diet_count;i++){
     	
-    	    	//@@fputc인가 뭐시기를 이용하여 단어 출력
+    	fprintf(file, "%s",health_data->diet[i].food_name);
+		//+ 추가설명 : project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성 
+		
     	fprintf(file, " - %d kcal \n",health_data->diet[i].calories_intake);
     	//+ 추가설명: project_guide_pdf의 백업사항 [Example]처럼 출력하기 위해 작성 
 		
