@@ -6,6 +6,14 @@
 //  Developed by Haejin Lee
 //
 
+
+// NOTICE 
+// 해당 파일과 관련한 코드작성 
+//[코드작성] 1. 프로그램 시작과 함께 exercise.txt로부터 운동관련 정보를 읽어와 exercise_list[]라는 database 배열에 저장 
+//[코드작성] 2. Exercise 옵션을 선택했을때 exercise_list를 도스 창에 출력 
+//[코드작성] 3. saveData함수에 변경된 exercise내용을 저장.
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,12 +24,6 @@
 
 #define MAX_EXERCISES 100  			// Maximum number of exercises
 #define MAX_EXERCISE_NAME_LEN 50	// Maximum length of the name of exercise
-
-
-
-//[코드작성] 1. 프로그램 시작과 함께 exercise.txt로부터 운동관련 정보를 읽어와 exercise_list[]라는 database 배열에 저장 *주로 loadExercise함수와 관련  
-//[코드작성] 2. Exercise 옵션을 선택했을때 exercise_list를 도스 창에 출력 
-//[코드작성] 3. saveData함수에 변경된 exercise내용을 저장.
 
 
 // To declare the structure of the exercises
@@ -113,7 +115,7 @@ int exercise_list_size = 0;
 	//[코드작성] 3 - exit 옵션과 유효하지 않은 숫자를 위해 if문 작성  
     	if(0<choice&&choice<=exercise_list_size){
     		//[코드작성] 3 - 입력한 항목을 보여줌  
-    		printf("You choose < %d : %s > \n", choice, exercise_list[choice-1].exercise_name);
+    			printf("You choose < %d : %s > \n", choice, exercise_list[choice-1].exercise_name);
     
 	// ToCode: to enter the duration of the exercise
     		//[코드작성] 3 - exercis_list와 duration의 간단한 곱셈연산으로 소모한 총 칼로리(calculation)를 계산하고 그 값을 사용자에게 보여줌  
@@ -176,6 +178,4 @@ int exercise_list_size = 0;
 	}
 
 }
-
-
 
