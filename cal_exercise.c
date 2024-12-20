@@ -115,9 +115,14 @@ int exercise_list_size = 0;
 	//[코드작성] 3 - exit 옵션과 유효하지 않은 숫자를 위해 if문 작성  
     	if(0<choice&&choice<=exercise_list_size){
     		//[코드작성] 3 - 입력한 항목을 보여줌  
-    			printf("You choose < %d : %s > \n", choice, exercise_list[choice-1].exercise_name);
+    			printf("You choose < %d : %s %d kcal per minute> \n", choice, exercise_list[choice-1].exercise_name, exercise_list[choice-1].calories_burned_per_minute);
     
-	// ToCode: to enter the duration of the exercise
+		// ToCode: to enter the duration of the exercise
+	
+			//[코드작성] 3 - duration을 입력받음  
+				printf("\nEnter the minute that you exercised :");
+    			scanf("%d", &duration);
+    			
     		//[코드작성] 3 - exercis_list와 duration의 간단한 곱셈연산으로 소모한 총 칼로리(calculation)를 계산하고 그 값을 사용자에게 보여줌  
     			calculation =  (exercise_list[choice-1].calories_burned_per_minute)*duration;
     			printf("You burned %d kcal total\n", calculation);

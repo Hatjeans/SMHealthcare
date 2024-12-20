@@ -180,10 +180,10 @@ void printHealthData(const HealthData* health_data) {
 				printf("Your total calories intake for today has reached your goal!\n");
 		
 			if(health_data->total_calories_intake<DAILY_CALORIE_GOAL)
-				printf("Your total calories intake for today has not reached you goal!, remember to eat more!!\n");
+				printf("Your total calories intake for today has not reached your goal!, remember to eat more!!\n");
 		
 			if(health_data->total_calories_intake>DAILY_CALORIE_GOAL)
-				printf("You have eaten more calories than planned today, but you have exercised too much!\n");
+				printf("You have eaten more calories than you planned today, but you have exercised too much!\n");
 		
 		}	
 	
@@ -195,7 +195,7 @@ void printHealthData(const HealthData* health_data) {
 				printf("Your total calories intake for today has reached your goal!\n");
 		
 			if(health_data->total_calories_intake<DAILY_CALORIE_GOAL)
-				printf("Your total calories intake for today has not reached you goal!, remember to eat more!!\n");
+				printf("Your total calories intake for today has not reached your goal!, remember to eat more!!\n");
 		
 		}
 	 

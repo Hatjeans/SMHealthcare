@@ -8,23 +8,24 @@
 
 
 // NOTICE 
-// 주석은 교수님의 주석과저의 주석은'[코드작성] (i)'와 '+추가설명'으로 이루어져있습니다. 
+// 주석은 교수님의 주석과 저의 주석'[코드작성] (i)'와 '+추가설명'으로 이루어져있습니다. 
 // 저의 주석은 한글과 영어가 혼용되어있어 교수님의 주석과 구분가능합니다!
 
 // 다시 봐야할 부분@@으로 표시
  
 
 // 코드작성 순서  
-//[코드작성] 1.프로그램 시작과 함께 exercise.txt, diet.txt로부터 운동관련 정보를 읽어와 exercise_list[], diet_list[] 라는 database 배열에 저장
-//[코드작성] 2. choice가 1일때, exercise_list 출력후 구조체 포인터를 이용하여 health_data 구조체에 입력받은 내용을 백업
-//[코드작성] 3. saveData함수에 변경된 exercise내용을 저장.  
-//[코드작성] 4. choice가 2일때, diet_list 출력후 구조체 포인터를 이용하여  health_data 구조체에 입력받은 내용을 백업  
-//[코드작성] 5. saveData함수에 변경된 diet내용을 저장 
-//[코드작성] 6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산및 health_data.txt 파일에 출력  
-//[코드작성] 7. show logged information 옵션 선택시, 현재까지 진행한 식사와 운동을 도스 창에 출력   
-//[코드작성] 8. printHealthData() 함수에서 사용자에게 추천사항을 제공 
-//[코드작성] 9. 시스템 종료조건 설정  
-
+//[코드작성]  1. 프로그램 시작과 함께 exercise.txt, diet.txt로부터 운동관련 정보를 읽어와 exercise_list[], diet_list[] 라는 database 배열에 저장
+//[코드작성]  2. choice가 1일때, exercise_list 출력후 구조체 포인터를 이용하여 health_data 구조체에 입력받은 내용을 백업
+//[코드작성]  3. saveData함수에 변경된 exercise내용을 저장.  
+//[코드작성]  4. choice가 2일때, diet_list 출력후 구조체 포인터를 이용하여  health_data 구조체에 입력받은 내용을 백업  
+//[코드작성]  5. saveData함수에 변경된 diet내용을 저장 
+//[코드작성]  6. saveData함수에 total calories burned과 total calories intake, the remaining calories를 계산및 health_data.txt 파일에 출력  
+//[코드작성]  7. show logged information 옵션 선택시, 현재까지 진행한 식사와 운동을 도스 창에 출력   
+//[코드작성]  8. printHealthData() 함수에서 사용자에게 추천사항을 제공 
+//[코드작성]  9. 시스템 종료 조건 설정  
+//[코드작성] 10. 세끼 먹는 것 구현
+//[코드작성] 11. 각종 input에 대한 예외처리  
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -71,11 +72,12 @@ int main() {
     // 시스템 종료조건 도달시, 시스템 종료 및 'health_data.txt'파일저장.
     do {
     	
-    	//[코드작성] 9 - 시스템 종료 조건 도달했을 때 시스템 종료를 위한 if 함수  
-    		if (remaining== 0) { 
-    	    
+    	//[코드작성] 9 - 시스템 종료 조건 도달했을 때 시스템 종료를 위한 if 함수 
+		//[코드작성] 10. 세끼 먹는 것 구현 
+    		if ((health_data.diet_count>=3)&&(remaining==0)) { //[코드작성] 10. 3끼 이상 먹었으며 남아있는 칼로리가 0일때 종료  
+
 				saveData(HEALTHFILEPATH, &health_data);//[코드작성] 9 -'health_data.txt'파일 저장  
-				printf("=======================================================================\n");;//[코드작성] 9 - 프론트 페이지 꾸미기, 구분을 위한 선   
+				printf("=======================================================================\n");//[코드작성] 9 - 프론트 페이지 꾸미기, 구분을 위한 선   
     	        printf("You have consumed all your calories for today! \n");
 				printf("Exit the system.\n"); //[코드작성] 9 - 시스템이 끝났음을 사용자에게 알려줌  
     			printf("=======================================================================\n");
