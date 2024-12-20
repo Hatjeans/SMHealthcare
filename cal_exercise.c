@@ -93,7 +93,7 @@ int exercise_list_size = 0;
     	int calculation_so_far;//+추가설명 : 이때까지 구한 calculation을 합산한 결과, 비슷한 변수 충돌 및 헷갈림 방지를 위해 calculation_so_far로 표현  
     
     
-    // ToCode: to provide the options for the exercises to be selected
+    // ToCode: to provide the options for the exercises to be selected 
     		printf("The list of exercises: \n");
 			
 		//[코드작성] 2 - [코드작성] 1에서 exercise_list[] 배열에 저장한 운동항목들을for문을 이용하여 불러와서 출력함. 
