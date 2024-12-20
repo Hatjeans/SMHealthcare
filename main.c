@@ -25,7 +25,6 @@
 //[코드작성]  8. printHealthData() 함수에서 사용자에게 추천사항을 제공 
 //[코드작성]  9. 시스템 종료 조건 설정  
 //[코드작성] 10. 세끼 먹는 것 구현
-//[코드작성] 11. 각종 input에 대한 예외처리  
 
 #include <stdio.h>
 #include <stdlib.h>
