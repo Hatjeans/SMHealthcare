@@ -130,7 +130,7 @@ int exercise_list_size = 0;
     
     
     // ToCode: to enter the selected exercise and *total calcories burned in the health data [교수님 주석 수정] 
-    	// + 추가설명 : 코드가 너무 길어질 것 같아 total calories burnedin the health data 지시는 line@@에 다시한번 표시  
+    	// + 추가설명 : 코드가 너무 길어질 것 같아 total calories burnedin the health data 지시는 line162에 다시한번 표시  
 
 		//[코드작성] 3 - health_data 포인터와 ->연산자를  사용하여 database구조체의 exercise[]멤버에 접근
 		//				이때 exercise[]는 배열 멤버로 배열의 인덱스는 exercise를 입력받는 횟수인 exercise_count를 사용함. 
@@ -159,7 +159,7 @@ int exercise_list_size = 0;
 	
 
     // ToCode: to enter the selected exercise and *total calcories burned in the health data [교수님 주석 수정]
-    	// + 추가설명 : line @@에 표시한 total calories burned in the health data를 여기에 구현 
+    	// + 추가설명 : line 133에 표시한 total calories burned in the health data를 여기에 구현 
     	
     	//[코드작성] 3 - health_data 포인터와 -> 연산자를 이용하여 database구조체의 total_calories_burned에 접근후 값을 업데이트 	
 			health_data->total_calories_burned += calculation;

@@ -1,9 +1,11 @@
 [Exercises] 
-Total calories burned - 0 kcal 
+swimming - 120 kcal 
+Total calories burned - 120 kcal 
 
 [Diets] 
-Total calories intaken - 0 kcal 
+tteokbokki - 615 kcal 
+Total calories intaken - 615 kcal 
 
 [Total] 
 Basal metabolic rate - 1300 kcal 
-The remaining calories - -1300 kcal 
+The remaining calories - -805 kcal 

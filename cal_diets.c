@@ -86,7 +86,7 @@ static int diet_list_size = 0;
     
     	//+ 변수 추가  
     	int cnt; //+추가설명 : 하루에 3끼를 먹는것을 체크하기 위한 cnt변수 (0~2) 
-    	int calculation;//+추가설명 : 뒤line@@에섭취한 개별 칼로리를 저장할 변수를 설정. total_calories로 하려했으나 다른 파일에 비슷한 변수가 존재해 calculation으로 표현.  
+    	int calculation;//+추가설명 : 뒤line127에 섭취한 개별 칼로리를 저장할 변수를 설정. total_calories로 하려했으나 다른 파일에 비슷한 변수가 존재해 calculation으로 표현.  
     	int calculation_so_far;//+추가설명 : 이때까지 구한 calculation을 합산한 결과.  비슷한 변수 충돌 및 헷갈림 방지를 위해 calculation_so_far로 표현
     
     // ToCode: to provide the options for the diets to be selected
