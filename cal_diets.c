@@ -136,7 +136,7 @@ static int diet_list_size = 0;
 			health_data->total_calories_intake += calculation;
 			//+ 추가설명 : health_data database의 total calories burned in the health data에 최종 값 calculation_so_far을 업데이트 	
 	
-		//[코드작성] 5 - 입력할 때마다 순서를 늘려주어야 하므로 후위 연산자를 사용  
+		//[코드작성] 5 - 입력할 때마다 순서를 늘려주어야 하므로 후위 증가 연산자를 사용  
 			health_data->diet_count++;
 	
 	}
@@ -144,9 +144,11 @@ static int diet_list_size = 0;
 	else {
 		
 		//[코드작성] 5 - exit option으로 -1을 넣으면 exit하여 다시 [Healthcare Management Systems] 시스템에 돌아갈 수 있도록 함. 
-			if (choice == -1) 
+			if (choice == -1) {			
+				printf("Return to the [Healthcare Management Systems] \n");
 				return;
-				
+			}
+
 		//[코드작성] 5 - 유효하지 않은 수가 있다는 것을 표현 
 			else
 				printf("[Error] Invalid option.\n");

@@ -1,11 +1,14 @@
 [Exercises] 
-swimming - 120 kcal 
-Total calories burned - 120 kcal 
+walking - 200 kcal 
+walking - 600 kcal 
+Total calories burned - 800 kcal 
 
 [Diets] 
-tteokbokki - 615 kcal 
-Total calories intaken - 615 kcal 
+rice - 600 kcal 
+pizza - 900 kcal 
+rice - 600 kcal 
+Total calories intaken - 2100 kcal 
 
 [Total] 
 Basal metabolic rate - 1300 kcal 
-The remaining calories - -805 kcal 
+The remaining calories - 0 kcal 

@@ -123,13 +123,23 @@ int exercise_list_size = 0;
 				printf("\nEnter the minute that you exercised :");
     			scanf("%d", &duration);
     			
-    		//[코드작성] 3 - exercis_list와 duration의 간단한 곱셈연산으로 소모한 총 칼로리(calculation)를 계산하고 그 값을 사용자에게 보여줌  
-    			calculation =  (exercise_list[choice-1].calories_burned_per_minute)*duration;
-    			printf("You burned %d kcal total\n", calculation);
+    		//[코드작성] 3 - 입력받은 duration에 대한 예외처리 
+    		
+    		if (duration>0) {
+    			
+				//[코드작성] 3 - exercis_list와 duration의 간단한 곱셈연산으로 소모한 총 칼로리(calculation)를 계산하고 그 값을 사용자에게 보여줌  
+    				calculation =  (exercise_list[choice-1].calories_burned_per_minute)*duration;
+    				printf("You burned %d kcal total\n", calculation);
+			}
+			
+			else {
+				//[코드작성] 3 -  입력받은 duration이 음수인 경우 system 설정으로 되돌아가기
+				printf("You entered a wrong time.\nPlease enter the positive number. \nReturn to the [Healthcare Management Systems] \n");
+				return;
+			}
     
     
-    
-    // ToCode: to enter the selected exercise and *total calcories burned in the health data [교수님 주석 수정] 
+    // ToCode: to enter the selected exercise and *total calcories burned in the health data [교수님 주11111석 수정] 
     	// + 추가설명 : 코드가 너무 길어질 것 같아 total calories burnedin the health data 지시는 line162에 다시한번 표시  
 
 		//[코드작성] 3 - health_data 포인터와 ->연산자를  사용하여 database구조체의 exercise[]멤버에 접근
@@ -173,9 +183,11 @@ int exercise_list_size = 0;
 	else {
 		
 		//[코드작성] 3 - exit option으로 -1을 넣으면 exit하여 다시 [Healthcare Management Systems] 시스템에 돌아갈 수 있도록 함. 
-		if (choice == -1) 
+		if (choice == -1) {
+			printf("Return to the [Healthcare Management Systems] \n");
 			return;
-			
+		}
+
 		//[코드작성] 3 - 유효하지 않은 수가 있다는 것을 표현 
 		else
 			printf("[Error] Invalid option.\n");
