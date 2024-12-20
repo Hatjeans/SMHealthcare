@@ -1,15 +1,9 @@
 [Exercises] 
-pilates - 160 kcal 
-walking - 40 kcal 
-swimming - 600 kcal 
-Total calories burned - 800 kcal 
+Total calories burned - 0 kcal 
 
 [Diets] 
-rice - 600 kcal 
-pizza - 900 kcal 
-rice - 600 kcal 
-Total calories intaken - 2100 kcal 
+Total calories intaken - 0 kcal 
 
 [Total] 
 Basal metabolic rate - 1300 kcal 
-The remaining calories - 0 kcal 
+The remaining calories - -1300 kcal 
